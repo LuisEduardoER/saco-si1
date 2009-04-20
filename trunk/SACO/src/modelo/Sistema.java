@@ -46,6 +46,7 @@ public class Sistema {
 		for (int i = 0; i < listaUsuariosDoSistema.size(); i++) {
 			if (pessoa.getEmail() == listaUsuariosDoSistema.get(i).getEmail()) {
 				return pessoaJaExistente;
+				
 			}
 
 		}
