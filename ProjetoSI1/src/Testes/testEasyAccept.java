@@ -31,8 +31,7 @@ public class testEasyAccept {
 			Facade facadeUS1 = new Facade();
 			executar.add(obj);
 			// Instancia a fachada do EasyAccept
-			EasyAcceptFacade eaFacade = new EasyAcceptFacade(facadeUS1,
-					executar);
+			EasyAcceptFacade eaFacade = new EasyAcceptFacade(facadeUS1,	executar);
 
 			// Executa o teste
 			eaFacade.executeTests();
