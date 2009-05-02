@@ -1,5 +1,6 @@
 package facade;
 
+//import exception.AllParametersAreMandatoryException;
 import exception.EmptyDatabaseException;
 import exception.InvalidParameterException;
 import exception.NotFoundException;
@@ -62,5 +63,25 @@ public class Facade {
 
 	public void requestRent(String email, String placa) throws RequiredFieldException{
 		empresa.requestRent(email, placa);
+	}
+	
+	public int getAllRents(){
+		return empresa.getAllRents();
+	}
+	
+	public void registerRent(String placa, String email, String inicio, String fim) throws Exception{
+		empresa.addRent(placa, email, inicio, fim);
+	}
+	
+	public int getRentsByCustomer(String email){
+		return empresa.getRentsByCustomer(email);
+	}
+	
+	public int getRentsByVehicle(String placa){
+		return empresa.getRentsByVehicle(placa);
+	}
+	
+	public int getAllActiveRents(){
+		return empresa.getAllActiveRents();
 	}
 }

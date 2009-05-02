@@ -3,6 +3,7 @@ package empresa;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import util.ValidateInput;
 
@@ -10,6 +11,7 @@ import Pessoas.Cliente;
 import Pessoas.Usuario;
 import Veiculos.Veiculo;
 
+import exception.AllParametersAreMandatoryException;
 import exception.RequiredFieldException;
 import exception.InvalidParameterException;
 import exception.EmptyDatabaseException;
@@ -25,9 +27,10 @@ public class Empresa extends ValidateInput {
 
 	ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 	ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+	ArrayList<Aluguel> alugueis = new ArrayList<Aluguel>();
 	ArrayList<String[]> requisicoesPendentes = new ArrayList<String[]>();
 	Map<String, Veiculo> veiculos = new HashMap<String, Veiculo>();
-
+	//ArrayList<Veiculo> veiculos = new ArrayList<Veiculo>();
 	/**
 	 * Metodo que retorna a quantidade de usuarios da empresa
 	 *
@@ -203,5 +206,70 @@ public class Empresa extends ValidateInput {
 		String[] novaRequisicao = { email, placa };
 		requisicoesPendentes.add(novaRequisicao);
 	}
+	
+	/*public boolean existCustomer(String email){
+		for (Usuario usuario : usuarios) {
+			if ( usuario.getEmail().equals(email)){
+				return true;
+			}				
+		}
+		return false;		
+	}*/
+	
+	public int getAllRents(){
+		return alugueis.size();
+	}
+	
+	public void addRent(String placa, String email, String inicio, String fim) throws Exception{
+		if(placa==null||placa==""||email==null||email==""||inicio==null||inicio==""||fim==null||fim==""){
+			throw new AllParametersAreMandatoryException("error: all parameters are mandatory!");
+		}else{
+			Aluguel a = new Aluguel(placa, email, inicio, fim);
+			alugueis.add(a);
+		}
+	}
+	
+	public int getRentsByCustomer(String email){
+		int contador = 0;
+		for(int i=0; i<alugueis.size(); i++){
+			if(alugueis.get(i).getEmail()==email){
+				contador++;				
+			}
+		}
+		return contador;
+	}
+	
+	public int getRentsByVehicle(String placa){
+		int contador = 0;
+		for(int i=0; i<alugueis.size(); i++){
+			if(alugueis.get(i).getPlate()==placa){
+				contador++;				
+			}
+		}
+		return contador;
+	}
+	
+	public int getAllActiveRents(){
+		int contador = 0;
+		for(int i=0; i<alugueis.size(); i++){
+			if(alugueis.get(i).getStatus()=="active"){
+				contador++;			
+			}
+		}
+		return contador;		
+	}
+	
+	/*public String getVehicleSituation(String placa){
+		Set<String> v = veiculos.keySet();
+		for(int i=0; i<v.size(); i++){
+			if(v.contains(placa){
+				return true;				
+			}
+		}
+		return false;
+		
+		
+		
+	}*/
 
 }

@@ -5,6 +5,7 @@ public class Veiculo {
 	private String modelo, cor, placa, tipo;
 	private int ano;
 	private double preco;
+	private boolean situacao;
 	
 	public Veiculo(String tipo, String modelo, String cor, String placa, int ano, double preco){
 		this.tipo = tipo;
@@ -13,6 +14,7 @@ public class Veiculo {
 		this.placa = placa;
 		this.ano = ano;
 		this.preco = preco;
+		this.situacao = true;
 	}
 	
 	public String getTipo(){
@@ -62,5 +64,12 @@ public class Veiculo {
 	public void setPreco(double preco){
 		this.preco = preco;
 	}
-
+	
+	public String situacao(){
+		if(this.situacao){
+			return "available";
+		}else{
+			return "unavailable";
+		}
+	}
 }

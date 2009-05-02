@@ -37,6 +37,6 @@ public class Cliente implements Pessoa{
 
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
+	}	
 
 }
