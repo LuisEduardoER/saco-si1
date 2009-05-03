@@ -12,6 +12,7 @@ import Pessoas.Usuario;
 import Veiculos.Veiculo;
 
 import exception.AllParametersAreMandatoryException;
+import exception.InvalidCharacterException;
 import exception.RequiredFieldException;
 import exception.InvalidParameterException;
 import exception.EmptyDatabaseException;
@@ -47,10 +48,11 @@ public class Empresa extends ValidateInput {
 	 * @param name
 	 * @param email
 	 * @param phone
-	 * @throws Exception
+	 * @throws AlreadyExistsException 
+	 * @throws InvalidCharacterException 
+	 * @throws RequiredFieldException 
 	 */
-	public void addUser(String login, String name, String email, String phone)
-			throws Exception {
+	public void addUser(String login, String name, String email, String phone) throws AlreadyExistsException, RequiredFieldException, InvalidCharacterException{
 		ValidateUser(login, name, email, phone);
 
 		for (Usuario usuario : usuarios) {
@@ -67,9 +69,12 @@ public class Empresa extends ValidateInput {
 	 * Metodo que remove um funcionario da empresa
 	 *
 	 * @param emailOrLogin
+	 * @throws NotFoundException 
+	 * @throws EmptyDatabaseException 
+	 * @throws InvalidParameterException 
 	 * @throws Exception
 	 */
-	public void removeUser(String emailOrLogin) throws Exception {
+	public void removeUser(String emailOrLogin) throws NotFoundException, EmptyDatabaseException, InvalidParameterException{
 		if (emailOrLogin == null || emailOrLogin.isEmpty())
 			throw new InvalidParameterException("error: invalid parameter!");
 		Usuario usuario = null;
@@ -102,10 +107,13 @@ public class Empresa extends ValidateInput {
 	 * @param name
 	 * @param email
 	 * @param phone
+	 * @throws InvalidCharacterException 
+	 * @throws RequiredFieldException 
+	 * @throws AlreadyExistsException 
 	 * @throws Exception
 	 */
-	public void addCustomer(String name, String email, String phone)
-			throws Exception {
+	public void addCustomer(String name, String email, String phone) throws RequiredFieldException, InvalidCharacterException, AlreadyExistsException
+		{
 		ValidateCustomer(name, email, phone);
 
 		for (Cliente cliente : clientes) {
@@ -123,9 +131,12 @@ public class Empresa extends ValidateInput {
 	 * Metodo que remove um cliente da empresa
 	 *
 	 * @param email
+	 * @throws InvalidParameterException 
+	 * @throws EmptyDatabaseException 
+	 * @throws NotFoundException 
 	 * @throws Exception
 	 */
-	public void removeCustomer(String email) throws Exception {
+	public void removeCustomer(String email) throws InvalidParameterException, EmptyDatabaseException, NotFoundException  {
 		if (email == null || email.isEmpty())
 			throw new InvalidParameterException("error: invalid parameter!");
 		Cliente client1 = null;
@@ -156,10 +167,13 @@ public class Empresa extends ValidateInput {
 	 * @param placa
 	 * @param ano
 	 * @param preco
+	 * @throws InvalidCharacterException 
+	 * @throws RequiredFieldException 
+	 * @throws AlreadyExistsException 
 	 * @throws Exception
 	 */
 	public void addVehicle(String tipo, String modelo, String cor,
-			String placa, String ano, String preco) throws Exception {
+			String placa, String ano, String preco) throws RequiredFieldException, InvalidCharacterException, AlreadyExistsException {
 		ValidateVehicle(tipo, modelo, cor, placa, ano, preco);
 
 		double precoDouble = Double.parseDouble(preco);

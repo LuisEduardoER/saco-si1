@@ -1,7 +1,9 @@
 package facade;
 
 //import exception.AllParametersAreMandatoryException;
+import exception.AlreadyExistsException;
 import exception.EmptyDatabaseException;
+import exception.InvalidCharacterException;
 import exception.InvalidParameterException;
 import exception.NotFoundException;
 import exception.RequiredFieldException;
@@ -25,7 +27,7 @@ public class Facade {
 		return empresa.getAllUsers();
 	}
 
-	public void addUser(String login, String name, String email, String phone) throws Exception{
+	public void addUser(String login, String name, String email, String phone) throws AlreadyExistsException, RequiredFieldException, InvalidCharacterException{
 			empresa.addUser(login, name, email, phone);
 	}
 
