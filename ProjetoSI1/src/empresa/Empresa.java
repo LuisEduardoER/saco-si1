@@ -126,6 +126,17 @@ public class Empresa extends ValidateInput {
 		Cliente newClient = new Cliente(name, email, phone);
 		clientes.add(newClient);
 	}
+	
+	
+	//Procurar um cliente na lista de clientes
+	public boolean isACostumer(String email){
+		for(Cliente cliente : clientes){
+			if (cliente.getEmail().equals(email)){
+				return true;
+			}
+		}
+		return false;
+	}
 
 	/**
 	 * Metodo que remove um cliente da empresa
@@ -238,9 +249,21 @@ public class Empresa extends ValidateInput {
 		if(placa==null||placa==""||email==null||email==""||inicio==null||inicio==""||fim==null||fim==""){
 			throw new AllParametersAreMandatoryException("error: all parameters are mandatory!");
 		}else{
+			/*          **** Adicionar usuario se ele nao for cadastrado
+			if (!isACostumer(email)){
+				addCustomer(name, email, phone);
+				Aluguel a = new Aluguel(placa, email, inicio, fim);
+				alugueis.add(a);
+				veiculos.get(placa.toUpperCase()).setSituacao();
+			}else{
+				Aluguel a = new Aluguel(placa, email, inicio, fim);
+				alugueis.add(a);
+				veiculos.get(placa.toUpperCase()).setSituacao();
+			} */
 			Aluguel a = new Aluguel(placa, email, inicio, fim);
 			alugueis.add(a);
 			veiculos.get(placa.toUpperCase()).setSituacao();
+			
 		}
 	}
 	
