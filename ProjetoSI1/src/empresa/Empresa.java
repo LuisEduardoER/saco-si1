@@ -280,7 +280,7 @@ public class Empresa extends ValidateInput {
 	public int getRentsByVehicle(String placa){
 		int contador = 0;
 		for(int i=0; i<alugueis.size(); i++){
-			if(alugueis.get(i).getPlate().equals(placa)){
+			if(alugueis.get(i).getPlate().toUpperCase().equals(placa)){
 				contador++;				
 			}
 		}
