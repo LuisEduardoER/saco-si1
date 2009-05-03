@@ -24,7 +24,7 @@ import exception.NotFoundException;
  *
  * @author Niedja Roberta
  */
-public class Empresa extends ValidateInput {
+public class Empresa {
 
 	ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 	ArrayList<Cliente> clientes = new ArrayList<Cliente>();
@@ -53,7 +53,7 @@ public class Empresa extends ValidateInput {
 	 * @throws RequiredFieldException 
 	 */
 	public void addUser(String login, String name, String email, String phone) throws AlreadyExistsException, RequiredFieldException, InvalidCharacterException{
-		ValidateUser(login, name, email, phone);
+		ValidateInput.validateUser(login, name, email, phone);
 
 		for (Usuario usuario : usuarios) {
 			if (usuario.getLogin().equals(login)
@@ -114,7 +114,7 @@ public class Empresa extends ValidateInput {
 	 */
 	public void addCustomer(String name, String email, String phone) throws RequiredFieldException, InvalidCharacterException, AlreadyExistsException
 		{
-		ValidateCustomer(name, email, phone);
+		ValidateInput.validateCustomer(name, email, phone);
 
 		for (Cliente cliente : clientes) {
 			if (cliente.getName().equals(name)
@@ -185,7 +185,7 @@ public class Empresa extends ValidateInput {
 	 */
 	public void addVehicle(String tipo, String modelo, String cor,
 			String placa, String ano, String preco) throws RequiredFieldException, InvalidCharacterException, AlreadyExistsException {
-		ValidateVehicle(tipo, modelo, cor, placa, ano, preco);
+		ValidateInput.validateVehicle(tipo, modelo, cor, placa, ano, preco);
 
 		double precoDouble = Double.parseDouble(preco);
 		int anoInt = Integer.parseInt(ano);

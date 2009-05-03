@@ -10,6 +10,7 @@ import exception.RequiredFieldException;
  */
 public class ValidateInput {
 
+
 	/**
 	 * Valida os inputs do usuario
 	 * @param login
@@ -19,7 +20,7 @@ public class ValidateInput {
 	 * @throws RequiredFieldException
 	 * @throws InvalidCharacterException
 	 */
-	public void ValidateUser(String login, String name, String email, String phone) throws RequiredFieldException, InvalidCharacterException{
+	public static void validateUser(String login, String name, String email, String phone) throws RequiredFieldException, InvalidCharacterException{
 		if ((login == null && phone == null && email == null && name == null) ||
 			     ((login != null && login.isEmpty()) && phone.isEmpty() && email.isEmpty() && name.isEmpty()))
 			     throw new RequiredFieldException("error: all fields are mandatory!");
@@ -51,7 +52,7 @@ public class ValidateInput {
 	 * @throws RequiredFieldException
 	 * @throws InvalidCharacterException
 	 */
-	public void ValidateCustomer(String name, String email, String phone) throws RequiredFieldException, InvalidCharacterException{
+	public static void validateCustomer(String name, String email, String phone) throws RequiredFieldException, InvalidCharacterException{
 		if ((phone == null && email == null && name == null) ||
 				((phone != null && phone.isEmpty()) && email.isEmpty() && name.isEmpty()))
 				 throw new RequiredFieldException("error: all fields are mandatory!");
@@ -85,7 +86,7 @@ public class ValidateInput {
 	 * @throws RequiredFieldException
 	 * @throws InvalidCharacterException
 	 */
-	public void ValidateVehicle(String tipo, String modelo, String cor, String placa, String ano, String preco) throws RequiredFieldException, InvalidCharacterException{
+	public static void validateVehicle(String tipo, String modelo, String cor, String placa, String ano, String preco) throws RequiredFieldException, InvalidCharacterException{
 		if (tipo == null || tipo.isEmpty() || modelo == null || modelo.isEmpty() || cor == null || cor.isEmpty() || placa == null || placa.isEmpty() ||
 			ano == null || ano.isEmpty() || preco == null || preco.isEmpty()) throw new RequiredFieldException("error: all fields are mandatory!");
 
