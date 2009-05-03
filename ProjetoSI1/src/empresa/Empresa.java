@@ -245,7 +245,7 @@ public class Empresa {
 		return alugueis.size();
 	}
 	
-	public void addRent(String placa, String email, String inicio, String fim) throws RequiredFieldException{
+	public void addRent(String placa, String email, String inicio, String fim) throws RequiredFieldException, InvalidCharacterException{
 		
 			ValidateInput.validateAddRent(placa, email, inicio, fim);
 		

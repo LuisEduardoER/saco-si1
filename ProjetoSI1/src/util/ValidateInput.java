@@ -143,13 +143,18 @@ public class ValidateInput {
 	}
 	
 	public static void validateAddRent(String placa, String email,
-			String inicio, String fim) throws RequiredFieldException {
+			String inicio, String fim) throws RequiredFieldException, InvalidCharacterException {
 		if (placa == null || placa.isEmpty() || email == null
 				|| email.isEmpty() || inicio == null || inicio.isEmpty()
 				|| fim == null || fim.isEmpty()) {
 			throw new RequiredFieldException("error: all parameters are mandatory!");
 		}
 		
+		if (email.endsWith(".") || email.endsWith("_")
+				|| email.endsWith("-") || email.endsWith("@")
+				|| email.startsWith(".") || email.startsWith("_")
+				|| email.startsWith("-") || email.startsWith("@"))
+			throw new InvalidCharacterException("error: invalid parameter(s)");
 		
 		
 
