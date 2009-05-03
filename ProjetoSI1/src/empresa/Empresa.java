@@ -245,10 +245,10 @@ public class Empresa {
 		return alugueis.size();
 	}
 	
-	public void addRent(String placa, String email, String inicio, String fim) throws Exception{
-		if(placa==null||placa==""||email==null||email==""||inicio==null||inicio==""||fim==null||fim==""){
-			throw new AllParametersAreMandatoryException("error: all parameters are mandatory!");
-		}else{
+	public void addRent(String placa, String email, String inicio, String fim) throws RequiredFieldException{
+		
+			ValidateInput.validateAddRent(placa, email, inicio, fim);
+		
 			/*          **** Adicionar usuario se ele nao for cadastrado
 			if (!isACostumer(email)){
 				addCustomer(name, email, phone);
@@ -264,7 +264,7 @@ public class Empresa {
 			alugueis.add(a);
 			veiculos.get(placa.toUpperCase()).setSituacao();
 			
-		}
+		
 	}
 	
 	public int getRentsByCustomer(String email){
