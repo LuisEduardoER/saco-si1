@@ -270,7 +270,7 @@ public class Empresa extends ValidateInput {
 	public int getRentsByCustomer(String email){
 		int contador = 0;
 		for(int i=0; i<alugueis.size(); i++){
-			if(alugueis.get(i).getEmail()==email){
+			if(alugueis.get(i).getEmail().equals(email)){
 				contador++;				
 			}
 		}
@@ -280,7 +280,7 @@ public class Empresa extends ValidateInput {
 	public int getRentsByVehicle(String placa){
 		int contador = 0;
 		for(int i=0; i<alugueis.size(); i++){
-			if(alugueis.get(i).getPlate()==placa){
+			if(alugueis.get(i).getPlate().equals(placa)){
 				contador++;				
 			}
 		}
