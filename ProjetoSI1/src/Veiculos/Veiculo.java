@@ -5,7 +5,10 @@ public class Veiculo {
 	private String modelo, cor, placa, tipo;
 	private int ano;
 	private double preco;
-	private boolean situacao;
+	private String situacao;
+	
+	private final String statusDefault = "available";
+	private final String statusNonDefault = "unavailable";
 	
 	public Veiculo(String tipo, String modelo, String cor, String placa, int ano, double preco){
 		this.tipo = tipo;
@@ -14,7 +17,7 @@ public class Veiculo {
 		this.placa = placa;
 		this.ano = ano;
 		this.preco = preco;
-		this.situacao = true;
+		this.situacao = "available";
 	}
 	
 	public String getTipo(){
@@ -66,10 +69,15 @@ public class Veiculo {
 	}
 	
 	public String situacao(){
-		if(this.situacao){
-			return "available";
+		return situacao;
+	}
+	
+	public void setSituacao(){
+		if (this.situacao == "unavailable"){
+			this.situacao = "available";
 		}else{
-			return "unavailable";
+			this.situacao = "unavailable";
 		}
 	}
+	
 }

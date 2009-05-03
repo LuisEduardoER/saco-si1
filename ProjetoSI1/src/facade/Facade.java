@@ -84,4 +84,8 @@ public class Facade {
 	public int getAllActiveRents(){
 		return empresa.getAllActiveRents();
 	}
+	
+	public String getVehicleSituation(String placa){
+		return empresa.getVehicleSituation(placa);
+	}
 }

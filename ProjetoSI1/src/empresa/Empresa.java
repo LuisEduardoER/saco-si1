@@ -226,6 +226,7 @@ public class Empresa extends ValidateInput {
 		}else{
 			Aluguel a = new Aluguel(placa, email, inicio, fim);
 			alugueis.add(a);
+			veiculos.get(placa.toUpperCase()).setSituacao();
 		}
 	}
 	
@@ -259,17 +260,8 @@ public class Empresa extends ValidateInput {
 		return contador;		
 	}
 	
-	/*public String getVehicleSituation(String placa){
-		Set<String> v = veiculos.keySet();
-		for(int i=0; i<v.size(); i++){
-			if(v.contains(placa){
-				return true;				
-			}
-		}
-		return false;
-		
-		
-		
-	}*/
+	public String getVehicleSituation(String placa){
+		return veiculos.get(placa.toUpperCase()).situacao();		
+	}
 
 }
