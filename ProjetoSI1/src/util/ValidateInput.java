@@ -1,5 +1,8 @@
 package util;
 
+import java.sql.Date;
+import java.util.GregorianCalendar;
+
 import exception.InvalidCharacterException;
 import exception.InvalidParameterException;
 import exception.RequiredFieldException;
@@ -12,23 +15,6 @@ import java.util.GregorianCalendar;
  * 
  */
 public class ValidateInput {
-	private static final int indexDia = 0;
-	private static final int indexMes = 1;
-	private static final int indexAno = 2;
-	private static final int JANEIRO = 1;
-	private static final int FEVEREIRO = 2;
-	private static final int MARCO = 3;
-	private static final int ABRIL = 4;
-	private static final int MAIO = 5;
-	private static final int JUNHO = 6;
-	private static final int JULHO = 7;
-	private static final int AGOSTO = 8;
-	private static final int SETEMBRO = 9;
-	private static final int OUTUBRO = 10;
-	private static final int NOVEMBRO = 11;
-	private static final int DEZEMBRO = 12;
-	
-	
 
 	/**
 	 * Valida os inputs do usuario
@@ -162,7 +148,10 @@ public class ValidateInput {
 	}
 	
 	public static void validateAddRent(String placa, String email,
-			String inicio, String fim) throws RequiredFieldException, InvalidCharacterException {
+			String inicio, String fim) throws RequiredFieldException, InvalidCharacterException, InvalidParameterException {
+		
+		
+		
 		if (placa == null || placa.isEmpty() || email == null
 				|| email.isEmpty() || inicio == null || inicio.isEmpty()
 				|| fim == null || fim.isEmpty()) {
@@ -173,33 +162,40 @@ public class ValidateInput {
 				|| email.endsWith("-") || email.endsWith("@")
 				|| email.startsWith(".") || email.startsWith("_")
 				|| email.startsWith("-") || email.startsWith("@"))
-			throw new InvalidCharacterException("error: invalid parameter(s)");		
+			throw new InvalidCharacterException("error: invalid parameter(s)");	
+		
+		if ( validateDate(inicio).after(validateDate(fim))){
+			throw new InvalidParameterException("error: invalid parameter(s)");
+		}
 
 	}
 	
-	public static void validateDate(String stringData)throws InvalidParameterException{
-		String[] arrayData = stringData.split("/");
-		GregorianCalendar data = new GregorianCalendar(Integer.parseInt(arrayData[2]),Integer.parseInt(arrayData[1]),
-				Integer.parseInt(arrayData[0]));
-		if(!data.isLenient()){
-			throw new InvalidParameterException("error: invalid parameter(s)");
-		}		
-	}
 	
-	public static void validateIntervalOfDates(String inicio, String fim) throws InvalidParameterException{
-		String[] arrayDataInicio = inicio.split("/");
-		String[] arrayDataFim = inicio.split("/");
+	
+	public static GregorianCalendar validateDate(String stringData)throws InvalidParameterException {
+		String[] arrayData = stringData.split("/");
+
+		int dia = Integer.parseInt(arrayData[0]);
+		int mes = Integer.parseInt(arrayData[1]);
+		int ano = Integer.parseInt(arrayData[2]);
 		
-		GregorianCalendar dataInicio = new GregorianCalendar(Integer.parseInt(arrayDataInicio[2]),
-				Integer.parseInt(arrayDataInicio[1]),Integer.parseInt(arrayDataInicio[0]));
-		GregorianCalendar dataFim = new GregorianCalendar(Integer.parseInt(arrayDataFim[2]),
-				Integer.parseInt(arrayDataFim[1]),Integer.parseInt(arrayDataFim[0]));
-		
-		if(!dataInicio.before(dataFim)){
+		if ( mes < 0 || mes > 12) 
 			throw new InvalidParameterException("error: invalid parameter(s)");
-		}
+
+		int diasDoMes[] = {31,28,31,30,31,30,31,31,30,31,30,31};
+
+		if ( mes == 2 && dia > 29 && (ano % 400 == 0 || (ano % 4 == 0 && ano % 100 !=0 ))) 
+			throw new InvalidParameterException("error: invalid parameter(s)");
+		 
+		if ( dia < 0 || dia > diasDoMes[mes - 1] ) 
+			throw new InvalidParameterException("error: invalid parameter(s)");
+			
+		GregorianCalendar data = new GregorianCalendar(ano,mes,dia);
+		
+			return data ;
 		
 	}
+
 	
 	
 }

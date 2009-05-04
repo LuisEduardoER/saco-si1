@@ -246,14 +246,9 @@ public class Empresa {
 	}
 	
 	public void addRent(String placa, String email, String inicio, String fim) throws RequiredFieldException, InvalidCharacterException, InvalidParameterException{
-			/*ValidateInput.validateDate(inicio);
-			ValidateInput.validateDate(fim);*/
 			
 			ValidateInput.validateAddRent(placa, email, inicio, fim);
-			
-			ValidateInput.validateDate(inicio);
-			ValidateInput.validateDate(fim);
-		
+
 			/*          **** Adicionar usuario se ele nao for cadastrado
 			if (!isACostumer(email)){
 				addCustomer(name, email, phone);
