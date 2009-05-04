@@ -1,7 +1,9 @@
 package util;
 
 import exception.InvalidCharacterException;
+import exception.InvalidParameterException;
 import exception.RequiredFieldException;
+import java.util.GregorianCalendar;
 
 /**
  * Classe responsavel por validar os inputs
@@ -10,6 +12,23 @@ import exception.RequiredFieldException;
  * 
  */
 public class ValidateInput {
+	private static final int indexDia = 0;
+	private static final int indexMes = 1;
+	private static final int indexAno = 2;
+	private static final int JANEIRO = 1;
+	private static final int FEVEREIRO = 2;
+	private static final int MARCO = 3;
+	private static final int ABRIL = 4;
+	private static final int MAIO = 5;
+	private static final int JUNHO = 6;
+	private static final int JULHO = 7;
+	private static final int AGOSTO = 8;
+	private static final int SETEMBRO = 9;
+	private static final int OUTUBRO = 10;
+	private static final int NOVEMBRO = 11;
+	private static final int DEZEMBRO = 12;
+	
+	
 
 	/**
 	 * Valida os inputs do usuario
@@ -154,10 +173,32 @@ public class ValidateInput {
 				|| email.endsWith("-") || email.endsWith("@")
 				|| email.startsWith(".") || email.startsWith("_")
 				|| email.startsWith("-") || email.startsWith("@"))
-			throw new InvalidCharacterException("error: invalid parameter(s)");
-		
-		
+			throw new InvalidCharacterException("error: invalid parameter(s)");		
 
+	}
+	
+	public static void validateDate(String stringData)throws InvalidParameterException{
+		String[] arrayData = stringData.split("/");
+		GregorianCalendar data = new GregorianCalendar(Integer.parseInt(arrayData[2]),Integer.parseInt(arrayData[1]),
+				Integer.parseInt(arrayData[0]));
+		if(!data.isLenient()){
+			throw new InvalidParameterException("error: invalid parameter(s)");
+		}		
+	}
+	
+	public static void validateIntervalOfDates(String inicio, String fim) throws InvalidParameterException{
+		String[] arrayDataInicio = inicio.split("/");
+		String[] arrayDataFim = inicio.split("/");
+		
+		GregorianCalendar dataInicio = new GregorianCalendar(Integer.parseInt(arrayDataInicio[2]),
+				Integer.parseInt(arrayDataInicio[1]),Integer.parseInt(arrayDataInicio[0]));
+		GregorianCalendar dataFim = new GregorianCalendar(Integer.parseInt(arrayDataFim[2]),
+				Integer.parseInt(arrayDataFim[1]),Integer.parseInt(arrayDataFim[0]));
+		
+		if(!dataInicio.before(dataFim)){
+			throw new InvalidParameterException("error: invalid parameter(s)");
+		}
+		
 	}
 	
 	
