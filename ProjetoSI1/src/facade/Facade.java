@@ -90,4 +90,9 @@ public class Facade {
 	public String getVehicleSituation(String placa){
 		return empresa.getVehicleSituation(placa);
 	}
+	
+	public String getRentSituation(String email, String placa , String inicio, String fim){
+		return empresa.getRentSituation(email,placa,inicio,fim);
+	}
+
 }

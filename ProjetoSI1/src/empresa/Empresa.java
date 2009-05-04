@@ -137,6 +137,15 @@ public class Empresa {
 		}
 		return false;
 	}
+	
+	public Aluguel findRent(String email){
+		for(Aluguel aluguel : alugueis){
+			if (aluguel.getEmail().equals(email)){
+				return aluguel;
+			}
+		}
+		return null;
+	}
 
 	/**
 	 * Metodo que remove um cliente da empresa
@@ -299,6 +308,11 @@ public class Empresa {
 	
 	public String getVehicleSituation(String placa){
 		return veiculos.get(placa.toUpperCase()).situacao();		
+	}
+
+	public String getRentSituation(String email, String placa, String inicio,
+			String fim) {
+		return findRent(email).getStatus();
 	}
 
 }
