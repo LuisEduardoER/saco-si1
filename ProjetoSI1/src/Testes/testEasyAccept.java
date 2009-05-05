@@ -6,6 +6,15 @@ import java.util.List;
 import easyaccept.EasyAcceptFacade;
 import facade.Facade;
 
+/**
+ * Classe de teste
+ *
+ * @author Andressa Bezerra 20721005
+ * @author Lenin da Nobrega 20711433
+ * @author Niedja Roberta 20621165
+ * @author Renata Braga 20721334
+ * @author Tatyanne Lapa 20621176
+ */
 public class testEasyAccept {
 
 	public static void main(String[] args) {
@@ -13,17 +22,17 @@ public class testEasyAccept {
 		// Adiciona o arquivo us1-cadastrarUsuario.txt na lista de Scripts de
 
 		// teste
-	arquivo.add("us1.txt"); // OK
-	arquivo.add("us2-adicionarCliente.txt"); // OK
-	arquivo.add("us3-RemoverCliente.txt"); // OK
+		arquivo.add("us1.txt"); // OK
+		arquivo.add("us2-adicionarCliente.txt"); // OK
+		arquivo.add("us3-RemoverCliente.txt"); // OK
 		arquivo.add("us4-RemoverUsuario.txt"); // OK
-	arquivo.add("us5-AdicionarVeiculo.txt"); // OK
-	arquivo.add("us6-removerVeiculo.txt"); // OK
-	arquivo.add("us7-ConsultarRequisicoesReservasVeiculos.txt"); // OK
-		arquivo.add("us8-RegistrarAluguelDeVeiculo.txt");//OK
-arquivo.add("us10-11-Registrar-NotificarLiberacaoDeVeiculo.txt");  //OK
-	arquivo.add("us12-13-Registrar-NotificarAtrasoDeAluguel.txt"); //OK
-	arquivo.add("us14-ConsultarSituacaoVeiculo.txt"); //OK
+		arquivo.add("us5-AdicionarVeiculo.txt"); // OK
+		arquivo.add("us6-removerVeiculo.txt"); // OK
+		arquivo.add("us7-ConsultarRequisicoesReservasVeiculos.txt"); // OK
+		arquivo.add("us8-RegistrarAluguelDeVeiculo.txt");// OK
+		arquivo.add("us10-11-Registrar-NotificarLiberacaoDeVeiculo.txt"); // OK
+		arquivo.add("us12-13-Registrar-NotificarAtrasoDeAluguel.txt"); // OK
+		arquivo.add("us14-ConsultarSituacaoVeiculo.txt"); // OK
 
 		List<String> executar = new ArrayList<String>();
 
@@ -31,7 +40,8 @@ arquivo.add("us10-11-Registrar-NotificarLiberacaoDeVeiculo.txt");  //OK
 			Facade facadeUS1 = new Facade();
 			executar.add(obj);
 			// Instancia a fachada do EasyAccept
-			EasyAcceptFacade eaFacade = new EasyAcceptFacade(facadeUS1,	executar);
+			EasyAcceptFacade eaFacade = new EasyAcceptFacade(facadeUS1,
+					executar);
 
 			// Executa o teste
 			eaFacade.executeTests();
@@ -43,5 +53,4 @@ arquivo.add("us10-11-Registrar-NotificarLiberacaoDeVeiculo.txt");  //OK
 		}
 
 	}
-
 }

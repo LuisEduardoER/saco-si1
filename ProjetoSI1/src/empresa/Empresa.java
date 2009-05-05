@@ -3,40 +3,62 @@ package empresa;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
+import persistencia.FachadaPersistencia;
 import util.ValidateInput;
-
 import Pessoas.Cliente;
 import Pessoas.Usuario;
 import Veiculos.Veiculo;
-
-import exception.AllParametersAreMandatoryException;
-import exception.InvalidCharacterException;
-import exception.RequiredFieldException;
-import exception.InvalidParameterException;
-import exception.EmptyDatabaseException;
 import exception.AlreadyExistsException;
+import exception.EmptyDatabaseException;
+import exception.InvalidCharacterException;
+import exception.InvalidParameterException;
+import exception.NoVehicleException;
 import exception.NotFoundException;
+import exception.RequiredFieldException;
 
 /**
  * Classe que implementa o funcionamento da empresa
- * 
- * @author Niedja Roberta
+ *
+ * @author Andressa Bezerra 20721005
+ * @author Lenin da Nobrega 20711433
+ * @author Niedja Roberta 	20621165
+ * @author Renata Braga		20721334
+ * @author Tatyanne Lapa	20621176
  */
 public class Empresa {
 
-	ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-	ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-	ArrayList<Aluguel> alugueis = new ArrayList<Aluguel>();
-	ArrayList<String[]> requisicoesPendentes = new ArrayList<String[]>();
-	Map<String, Veiculo> veiculos = new HashMap<String, Veiculo>();
+	ArrayList<Usuario> usuarios;
+	ArrayList<Cliente> clientes;
+	ArrayList<Aluguel> alugueis;
+	ArrayList<String[]> requisicoesPendentes;
+	Map<String, Veiculo> veiculos;
+	FachadaPersistencia persistencia;
 
-	// ArrayList<Veiculo> veiculos = new ArrayList<Veiculo>();
+	/**
+	 * Construtor da classe Empresa
+	 */
+	public Empresa() {
+		persistencia = new FachadaPersistencia();
+		usuarios = (ArrayList<Usuario>) persistencia.getUserList();
+		clientes = (ArrayList<Cliente>) persistencia.getClientList();
+		alugueis = (ArrayList<Aluguel>) persistencia.getRents();
+		requisicoesPendentes = (ArrayList<String[]>) persistencia
+				.getPendentsRequests();
+		veiculos = (Map<String, Veiculo>) persistencia.getVehicles();
+//
+//		usuarios = new ArrayList<Usuario>();
+//		clientes = new ArrayList<Cliente>();
+//		alugueis = new ArrayList<Aluguel>();
+//		requisicoesPendentes = new ArrayList<String[]>();
+//		veiculos = new HashMap<String, Veiculo>();
+
+	}
+
 	/**
 	 * Metodo que retorna a quantidade de usuarios da empresa
-	 * 
-	 * @return usuarios.size()
+	 *
+	 * @return int quantidade de usuários
 	 */
 	public int getAllUsers() {
 		return usuarios.size();
@@ -44,11 +66,15 @@ public class Empresa {
 
 	/**
 	 * Metodo que adiciona um novo usuario (funcionario) na empresa
-	 * 
-	 * @param login
-	 * @param name
-	 * @param email
-	 * @param phone
+	 *
+	 * @param String
+	 *            login
+	 * @param String
+	 *            name
+	 * @param String
+	 *            email
+	 * @param String
+	 *            phone
 	 * @throws AlreadyExistsException
 	 * @throws InvalidCharacterException
 	 * @throws RequiredFieldException
@@ -70,8 +96,9 @@ public class Empresa {
 
 	/**
 	 * Metodo que remove um funcionario da empresa
-	 * 
-	 * @param emailOrLogin
+	 *
+	 * @param String
+	 *            emailOrLogin
 	 * @throws NotFoundException
 	 * @throws EmptyDatabaseException
 	 * @throws InvalidParameterException
@@ -98,8 +125,8 @@ public class Empresa {
 
 	/**
 	 * Metodo que retorna a quantidade de clientes da empresa
-	 * 
-	 * @return clientes.size()
+	 *
+	 * @return int quantidade de clientes
 	 */
 	public int getAllCustomers() {
 		return clientes.size();
@@ -107,10 +134,13 @@ public class Empresa {
 
 	/**
 	 * Metodo que adiciona um cliente a empresa
-	 * 
-	 * @param name
-	 * @param email
-	 * @param phone
+	 *
+	 * @param String
+	 *            name
+	 * @param String
+	 *            email
+	 * @param String
+	 *            phone
 	 * @throws InvalidCharacterException
 	 * @throws RequiredFieldException
 	 * @throws AlreadyExistsException
@@ -133,6 +163,13 @@ public class Empresa {
 	}
 
 	// Procurar um cliente na lista de clientes
+	/**
+	 * Metodo que verifica se alguém já é cliente
+	 *
+	 * @param String
+	 *            email
+	 * @return boolean
+	 */
 	public boolean isACostumer(String email) {
 		for (Cliente cliente : clientes) {
 			if (cliente.getEmail().equals(email)) {
@@ -142,6 +179,14 @@ public class Empresa {
 		return false;
 	}
 
+	/**
+	 * Metodo que procura um aluguel
+	 *
+	 * @param String
+	 *            email
+	 *
+	 * @return Aluguel aluguel
+	 */
 	public Aluguel findRent(String email) {
 		for (Aluguel aluguel : alugueis) {
 			if (aluguel.getEmail().equals(email)) {
@@ -153,8 +198,10 @@ public class Empresa {
 
 	/**
 	 * Metodo que remove um cliente da empresa
-	 * 
-	 * @param email
+	 *
+	 * @param String
+	 *            email
+	 *
 	 * @throws InvalidParameterException
 	 * @throws EmptyDatabaseException
 	 * @throws NotFoundException
@@ -179,19 +226,31 @@ public class Empresa {
 		}
 	}
 
+	/**
+	 * Metodo que retorna a quantidade de veiculos da empresa
+	 *
+	 * @return int quantidade de veiculos
+	 *
+	 */
 	public int getAllVehicles() {
 		return veiculos.size();
 	}
 
 	/**
 	 * Metodo para adicionar um veiculo a empresa
-	 * 
-	 * @param tipo
-	 * @param modelo
-	 * @param cor
-	 * @param placa
-	 * @param ano
-	 * @param preco
+	 *
+	 * @param String
+	 *            tipo
+	 * @param String
+	 *            modelo
+	 * @param String
+	 *            cor
+	 * @param String
+	 *            placa
+	 * @param String
+	 *            ano
+	 * @param String
+	 *            preco
 	 * @throws InvalidCharacterException
 	 * @throws RequiredFieldException
 	 * @throws AlreadyExistsException
@@ -217,7 +276,7 @@ public class Empresa {
 
 	/**
 	 * Metodo para remover um veiculo da empresa
-	 * 
+	 *
 	 * @param placa
 	 * @throws NoVehicleException
 	 * @throws InvalidParameterException
@@ -235,10 +294,24 @@ public class Empresa {
 		veiculos.remove(placa.toUpperCase());
 	}
 
+	/**
+	 * Metodo que retorna as requisicoes de alugueis pendentes
+	 *
+	 * @return int quantidade de requisicoes pendentes
+	 */
 	public int getAllPendentRentRequests() {
 		return requisicoesPendentes.size();
 	}
 
+	/**
+	 * Metodo que faz a requisicao de um aluguel
+	 *
+	 * @param String
+	 *            email
+	 * @param String
+	 *            placa
+	 *
+	 */
 	public void requestRent(String email, String placa)
 			throws RequiredFieldException {
 		if (email == null || email.isEmpty() || placa == null
@@ -248,36 +321,50 @@ public class Empresa {
 		requisicoesPendentes.add(novaRequisicao);
 	}
 
-	/*
-	 * public boolean existCustomer(String email){ for (Usuario usuario :
-	 * usuarios) { if ( usuario.getEmail().equals(email)){ return true; } }
-	 * return false; }
+	/**
+	 * Metodo que retorna a quantidade de alugueis
+	 *
+	 * @return int quantidade de alugueis
 	 */
-
 	public int getAllRents() {
 		return alugueis.size();
 	}
 
+	/**
+	 * Metodo que adiciona um alguel e altera a situacao do veiculo
+	 *
+	 * @param String
+	 *            placa
+	 * @param String
+	 *            email
+	 * @param String
+	 *            inicio
+	 * @param String
+	 *            fim
+	 * @throws RequiredFieldException
+	 * @throws InvalidCharacterException
+	 * @throws InvalidParameterException
+	 */
 	public void addRent(String placa, String email, String inicio, String fim)
 			throws RequiredFieldException, InvalidCharacterException,
 			InvalidParameterException {
 
 		ValidateInput.validateAddRent(placa, email, inicio, fim);
 
-		/*
-		 * Adicionar usuario se ele nao for cadastrado if (!isACostumer(email)){
-		 * addCustomer(name, email, phone); Aluguel a = new Aluguel(placa,
-		 * email, inicio, fim); alugueis.add(a);
-		 * veiculos.get(placa.toUpperCase()).setSituacao(); }else{ Aluguel a =
-		 * new Aluguel(placa, email, inicio, fim); alugueis.add(a);
-		 * veiculos.get(placa.toUpperCase()).setSituacao(); }
-		 */
 		Aluguel a = new Aluguel(placa, email, inicio, fim);
 		alugueis.add(a);
 		veiculos.get(placa.toUpperCase()).setSituacao();
 
 	}
 
+	/**
+	 * Metodo que retorna a quantidade de alugueis feitos por cliente
+	 *
+	 * @param String
+	 *            email
+	 *
+	 * @return int quantidade de alugueis por cliente
+	 */
 	public int getRentsByCustomer(String email) {
 		int contador = 0;
 		for (int i = 0; i < alugueis.size(); i++) {
@@ -288,6 +375,14 @@ public class Empresa {
 		return contador;
 	}
 
+	/**
+	 * Metodo que retorna a quantidade de alugueis por veiculo
+	 *
+	 * @param String
+	 *            email
+	 *
+	 * @return int quantidade de alugueis por veiculo
+	 */
 	public int getRentsByVehicle(String placa) {
 		int contador = 0;
 		for (int i = 0; i < alugueis.size(); i++) {
@@ -298,25 +393,59 @@ public class Empresa {
 		return contador;
 	}
 
+	/**
+	 * Metodo que retorna a quantidade de alugueis ativos
+	 *
+	 * @return quantidade de alugueis ativos
+	 */
 	public int getAllActiveRents() {
 		int contador = 0;
 		for (int i = 0; i < alugueis.size(); i++) {
-			if (alugueis.get(i).getStatus() == "active") {
+			if (alugueis.get(i).getStatus().equals("active")) {
 				contador++;
 			}
 		}
 		return contador;
 	}
 
+	/**
+	 * Metodo que retorna a situacao do veiculo (se ele esta "unavailable" ou
+	 * "available"
+	 *
+	 * @param String
+	 *            placa
+	 * @return situacao do veiculo
+	 */
 	public String getVehicleSituation(String placa) {
 		return veiculos.get(placa.toUpperCase()).situacao();
 	}
 
+	/**
+	 * Metodo que retorna a situacao do aluguel (se esta "late" ou "ative")
+	 *
+	 * @param String
+	 *            email
+	 * @param String
+	 *            placa
+	 * @param String
+	 *            inicio
+	 * @param String
+	 *            fim
+	 * @return status do aluguel
+	 */
 	public String getRentSituation(String email, String placa, String inicio,
 			String fim) {
 		return findRent(email).getStatus();
 	}
 
+	/**
+	 * Metodo que muda a situacao do veiculo se ele for alugado e remove o
+	 * veiculo dos alugueis
+	 *
+	 * @param String
+	 *            placa
+	 * @return boolean
+	 */
 	public boolean releaseVehicle(String plate) {
 
 		if (veiculos.get(plate.toUpperCase()).situacao() == "unavailable") {
@@ -328,6 +457,19 @@ public class Empresa {
 		return true;
 	}
 
+	/**
+	 * Metodo que registra um aluguel atrasado
+	 *
+	 * @param String
+	 *            placa
+	 * @param String
+	 *            email
+	 * @param String
+	 *            inicio
+	 * @param String
+	 *            fim
+	 * @throws Exception
+	 */
 	public void registerLateRent(String plate, String email, String init,
 			String end) throws Exception {
 

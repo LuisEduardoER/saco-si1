@@ -1,6 +1,6 @@
 package facade;
 
-//import exception.AllParametersAreMandatoryException;
+import empresa.Empresa;
 import exception.AlreadyExistsException;
 import exception.EmptyDatabaseException;
 import exception.InvalidCharacterException;
@@ -8,10 +8,26 @@ import exception.InvalidParameterException;
 import exception.NotFoundException;
 import exception.RequiredFieldException;
 
+/**
+ * Classe que implementa a fachada principal do sistema da empresa
+ *
+ * @author Andressa Bezerra 20721005
+ * @author Lenin da Nobrega 20711433
+ * @author Niedja Roberta 20621165
+ * @author Renata Braga 20721334
+ * @author Tatyanne Lapa 20621176
+ */
 public class Facade {
 
 	private static Facade instance;
 
+	private Empresa empresa = new Empresa();
+
+	/**
+	 * Metodo estatico que cria uma instancia da fachada (Singleton)
+	 *
+	 * @return instancia
+	 */
 	public static Facade getInstance() {
 		if (instance == null) {
 			instance = new Facade();
@@ -19,7 +35,6 @@ public class Facade {
 		return instance;
 	}
 
-	private empresa.Empresa empresa = new empresa.Empresa();
 
 	public int getAllUsers() {
 		return empresa.getAllUsers();
@@ -109,4 +124,6 @@ public class Facade {
 			String end) throws Exception {
 		empresa.registerLateRent(plate, email, init, end);
 	}
+	
+
 }
