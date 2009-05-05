@@ -13,17 +13,17 @@ public class testEasyAccept {
 		// Adiciona o arquivo us1-cadastrarUsuario.txt na lista de Scripts de
 
 		// teste
-//		arquivo.add("us1.txt"); // OK
-//		arquivo.add("us2-adicionarCliente.txt"); // OK
-//		arquivo.add("us3-RemoverCliente.txt"); // OK
-//		arquivo.add("us4-RemoverUsuario.txt"); // OK
-//		arquivo.add("us5-AdicionarVeiculo.txt"); // OK
-//		arquivo.add("us6-removerVeiculo.txt"); // OK
-//		arquivo.add("us7-ConsultarRequisicoesReservasVeiculos.txt"); // OK
+	arquivo.add("us1.txt"); // OK
+	arquivo.add("us2-adicionarCliente.txt"); // OK
+	arquivo.add("us3-RemoverCliente.txt"); // OK
+		arquivo.add("us4-RemoverUsuario.txt"); // OK
+	arquivo.add("us5-AdicionarVeiculo.txt"); // OK
+	arquivo.add("us6-removerVeiculo.txt"); // OK
+	arquivo.add("us7-ConsultarRequisicoesReservasVeiculos.txt"); // OK
 		arquivo.add("us8-RegistrarAluguelDeVeiculo.txt");//OK
-//		arquivo.add("us10-11-Registrar-NotificarLiberacaoDeVeiculo.txt");
-//		arquivo.add("us12-13-Registrar-NotificarAtrasoDeAluguel.txt");
-//		arquivo.add("us14-ConsultarSituacaoVeiculo.txt"); //OK
+arquivo.add("us10-11-Registrar-NotificarLiberacaoDeVeiculo.txt");  //OK
+	arquivo.add("us12-13-Registrar-NotificarAtrasoDeAluguel.txt"); //OK
+	arquivo.add("us14-ConsultarSituacaoVeiculo.txt"); //OK
 
 		List<String> executar = new ArrayList<String>();
 

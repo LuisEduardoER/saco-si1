@@ -21,7 +21,7 @@ import exception.NotFoundException;
 
 /**
  * Classe que implementa o funcionamento da empresa
- *
+ * 
  * @author Niedja Roberta
  */
 public class Empresa {
@@ -31,10 +31,11 @@ public class Empresa {
 	ArrayList<Aluguel> alugueis = new ArrayList<Aluguel>();
 	ArrayList<String[]> requisicoesPendentes = new ArrayList<String[]>();
 	Map<String, Veiculo> veiculos = new HashMap<String, Veiculo>();
-	//ArrayList<Veiculo> veiculos = new ArrayList<Veiculo>();
+
+	// ArrayList<Veiculo> veiculos = new ArrayList<Veiculo>();
 	/**
 	 * Metodo que retorna a quantidade de usuarios da empresa
-	 *
+	 * 
 	 * @return usuarios.size()
 	 */
 	public int getAllUsers() {
@@ -43,16 +44,18 @@ public class Empresa {
 
 	/**
 	 * Metodo que adiciona um novo usuario (funcionario) na empresa
-	 *
+	 * 
 	 * @param login
 	 * @param name
 	 * @param email
 	 * @param phone
-	 * @throws AlreadyExistsException 
-	 * @throws InvalidCharacterException 
-	 * @throws RequiredFieldException 
+	 * @throws AlreadyExistsException
+	 * @throws InvalidCharacterException
+	 * @throws RequiredFieldException
 	 */
-	public void addUser(String login, String name, String email, String phone) throws AlreadyExistsException, RequiredFieldException, InvalidCharacterException{
+	public void addUser(String login, String name, String email, String phone)
+			throws AlreadyExistsException, RequiredFieldException,
+			InvalidCharacterException {
 		ValidateInput.validateUser(login, name, email, phone);
 
 		for (Usuario usuario : usuarios) {
@@ -67,14 +70,15 @@ public class Empresa {
 
 	/**
 	 * Metodo que remove um funcionario da empresa
-	 *
+	 * 
 	 * @param emailOrLogin
-	 * @throws NotFoundException 
-	 * @throws EmptyDatabaseException 
-	 * @throws InvalidParameterException 
+	 * @throws NotFoundException
+	 * @throws EmptyDatabaseException
+	 * @throws InvalidParameterException
 	 * @throws Exception
 	 */
-	public void removeUser(String emailOrLogin) throws NotFoundException, EmptyDatabaseException, InvalidParameterException{
+	public void removeUser(String emailOrLogin) throws NotFoundException,
+			EmptyDatabaseException, InvalidParameterException {
 		if (emailOrLogin == null || emailOrLogin.isEmpty())
 			throw new InvalidParameterException("error: invalid parameter!");
 		Usuario usuario = null;
@@ -94,7 +98,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que retorna a quantidade de clientes da empresa
-	 *
+	 * 
 	 * @return clientes.size()
 	 */
 	public int getAllCustomers() {
@@ -103,17 +107,18 @@ public class Empresa {
 
 	/**
 	 * Metodo que adiciona um cliente a empresa
-	 *
+	 * 
 	 * @param name
 	 * @param email
 	 * @param phone
-	 * @throws InvalidCharacterException 
-	 * @throws RequiredFieldException 
-	 * @throws AlreadyExistsException 
+	 * @throws InvalidCharacterException
+	 * @throws RequiredFieldException
+	 * @throws AlreadyExistsException
 	 * @throws Exception
 	 */
-	public void addCustomer(String name, String email, String phone) throws RequiredFieldException, InvalidCharacterException, AlreadyExistsException
-		{
+	public void addCustomer(String name, String email, String phone)
+			throws RequiredFieldException, InvalidCharacterException,
+			AlreadyExistsException {
 		ValidateInput.validateCustomer(name, email, phone);
 
 		for (Cliente cliente : clientes) {
@@ -126,21 +131,20 @@ public class Empresa {
 		Cliente newClient = new Cliente(name, email, phone);
 		clientes.add(newClient);
 	}
-	
-	
-	//Procurar um cliente na lista de clientes
-	public boolean isACostumer(String email){
-		for(Cliente cliente : clientes){
-			if (cliente.getEmail().equals(email)){
+
+	// Procurar um cliente na lista de clientes
+	public boolean isACostumer(String email) {
+		for (Cliente cliente : clientes) {
+			if (cliente.getEmail().equals(email)) {
 				return true;
 			}
 		}
 		return false;
 	}
-	
-	public Aluguel findRent(String email){
-		for(Aluguel aluguel : alugueis){
-			if (aluguel.getEmail().equals(email)){
+
+	public Aluguel findRent(String email) {
+		for (Aluguel aluguel : alugueis) {
+			if (aluguel.getEmail().equals(email)) {
 				return aluguel;
 			}
 		}
@@ -149,14 +153,15 @@ public class Empresa {
 
 	/**
 	 * Metodo que remove um cliente da empresa
-	 *
+	 * 
 	 * @param email
-	 * @throws InvalidParameterException 
-	 * @throws EmptyDatabaseException 
-	 * @throws NotFoundException 
+	 * @throws InvalidParameterException
+	 * @throws EmptyDatabaseException
+	 * @throws NotFoundException
 	 * @throws Exception
 	 */
-	public void removeCustomer(String email) throws InvalidParameterException, EmptyDatabaseException, NotFoundException  {
+	public void removeCustomer(String email) throws InvalidParameterException,
+			EmptyDatabaseException, NotFoundException {
 		if (email == null || email.isEmpty())
 			throw new InvalidParameterException("error: invalid parameter!");
 		Cliente client1 = null;
@@ -180,20 +185,22 @@ public class Empresa {
 
 	/**
 	 * Metodo para adicionar um veiculo a empresa
-	 *
+	 * 
 	 * @param tipo
 	 * @param modelo
 	 * @param cor
 	 * @param placa
 	 * @param ano
 	 * @param preco
-	 * @throws InvalidCharacterException 
-	 * @throws RequiredFieldException 
-	 * @throws AlreadyExistsException 
+	 * @throws InvalidCharacterException
+	 * @throws RequiredFieldException
+	 * @throws AlreadyExistsException
 	 * @throws Exception
 	 */
 	public void addVehicle(String tipo, String modelo, String cor,
-			String placa, String ano, String preco) throws RequiredFieldException, InvalidCharacterException, AlreadyExistsException {
+			String placa, String ano, String preco)
+			throws RequiredFieldException, InvalidCharacterException,
+			AlreadyExistsException {
 		ValidateInput.validateVehicle(tipo, modelo, cor, placa, ano, preco);
 
 		double precoDouble = Double.parseDouble(preco);
@@ -210,7 +217,7 @@ public class Empresa {
 
 	/**
 	 * Metodo para remover um veiculo da empresa
-	 *
+	 * 
 	 * @param placa
 	 * @throws NoVehicleException
 	 * @throws InvalidParameterException
@@ -240,74 +247,69 @@ public class Empresa {
 		String[] novaRequisicao = { email, placa };
 		requisicoesPendentes.add(novaRequisicao);
 	}
-	
-	/*public boolean existCustomer(String email){
-		for (Usuario usuario : usuarios) {
-			if ( usuario.getEmail().equals(email)){
-				return true;
-			}				
-		}
-		return false;		
-	}*/
-	
-	public int getAllRents(){
+
+	/*
+	 * public boolean existCustomer(String email){ for (Usuario usuario :
+	 * usuarios) { if ( usuario.getEmail().equals(email)){ return true; } }
+	 * return false; }
+	 */
+
+	public int getAllRents() {
 		return alugueis.size();
 	}
-	
-	public void addRent(String placa, String email, String inicio, String fim) throws RequiredFieldException, InvalidCharacterException, InvalidParameterException{
-			
-			ValidateInput.validateAddRent(placa, email, inicio, fim);
 
-			/*          **** Adicionar usuario se ele nao for cadastrado
-			if (!isACostumer(email)){
-				addCustomer(name, email, phone);
-				Aluguel a = new Aluguel(placa, email, inicio, fim);
-				alugueis.add(a);
-				veiculos.get(placa.toUpperCase()).setSituacao();
-			}else{
-				Aluguel a = new Aluguel(placa, email, inicio, fim);
-				alugueis.add(a);
-				veiculos.get(placa.toUpperCase()).setSituacao();
-			} */
-			Aluguel a = new Aluguel(placa, email, inicio, fim);
-			alugueis.add(a);
-			veiculos.get(placa.toUpperCase()).setSituacao();
-			
-		
+	public void addRent(String placa, String email, String inicio, String fim)
+			throws RequiredFieldException, InvalidCharacterException,
+			InvalidParameterException {
+
+		ValidateInput.validateAddRent(placa, email, inicio, fim);
+
+		/*
+		 * Adicionar usuario se ele nao for cadastrado if (!isACostumer(email)){
+		 * addCustomer(name, email, phone); Aluguel a = new Aluguel(placa,
+		 * email, inicio, fim); alugueis.add(a);
+		 * veiculos.get(placa.toUpperCase()).setSituacao(); }else{ Aluguel a =
+		 * new Aluguel(placa, email, inicio, fim); alugueis.add(a);
+		 * veiculos.get(placa.toUpperCase()).setSituacao(); }
+		 */
+		Aluguel a = new Aluguel(placa, email, inicio, fim);
+		alugueis.add(a);
+		veiculos.get(placa.toUpperCase()).setSituacao();
+
 	}
-	
-	public int getRentsByCustomer(String email){
+
+	public int getRentsByCustomer(String email) {
 		int contador = 0;
-		for(int i=0; i<alugueis.size(); i++){
-			if(alugueis.get(i).getEmail().equals(email)){
-				contador++;				
+		for (int i = 0; i < alugueis.size(); i++) {
+			if (alugueis.get(i).getEmail().equals(email)) {
+				contador++;
 			}
 		}
 		return contador;
 	}
-	
-	public int getRentsByVehicle(String placa){
+
+	public int getRentsByVehicle(String placa) {
 		int contador = 0;
-		for(int i=0; i<alugueis.size(); i++){
-			if(alugueis.get(i).getPlate().toUpperCase().equals(placa)){
-				contador++;				
+		for (int i = 0; i < alugueis.size(); i++) {
+			if (alugueis.get(i).getPlate().toUpperCase().equals(placa)) {
+				contador++;
 			}
 		}
 		return contador;
 	}
-	
-	public int getAllActiveRents(){
+
+	public int getAllActiveRents() {
 		int contador = 0;
-		for(int i=0; i<alugueis.size(); i++){
-			if(alugueis.get(i).getStatus()=="active"){
-				contador++;			
+		for (int i = 0; i < alugueis.size(); i++) {
+			if (alugueis.get(i).getStatus() == "active") {
+				contador++;
 			}
 		}
-		return contador;		
+		return contador;
 	}
-	
-	public String getVehicleSituation(String placa){
-		return veiculos.get(placa.toUpperCase()).situacao();		
+
+	public String getVehicleSituation(String placa) {
+		return veiculos.get(placa.toUpperCase()).situacao();
 	}
 
 	public String getRentSituation(String email, String placa, String inicio,
@@ -315,4 +317,25 @@ public class Empresa {
 		return findRent(email).getStatus();
 	}
 
+	public boolean releaseVehicle(String plate) {
+
+		if (veiculos.get(plate.toUpperCase()).situacao() == "unavailable") {
+			veiculos.get(plate.toUpperCase()).setSituacao();
+			alugueis.remove(veiculos.get(plate.toUpperCase()));
+			return true;
+		}
+
+		return true;
+	}
+
+	public void registerLateRent(String plate, String email, String init,
+			String end) throws Exception {
+
+		Aluguel aluguel = findRent(email);
+		if (aluguel.getEnd().compareToIgnoreCase(end) == -1) {
+			throw new Exception("error: end date is greater than today date!");
+		} else
+			findRent(email).setStatus();
+
+	}
 }
