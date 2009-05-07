@@ -39,7 +39,7 @@ public class Empresa {
 	 * Construtor da classe Empresa
 	 */
 	public Empresa() {
-		persistencia = new FachadaPersistencia();
+		persistencia = FachadaPersistencia.getInstance();
 		usuarios = (ArrayList<Usuario>) persistencia.getUserList();
 		clientes = (ArrayList<Cliente>) persistencia.getClientList();
 		alugueis = (ArrayList<Aluguel>) persistencia.getRents();
@@ -478,6 +478,27 @@ public class Empresa {
 			throw new Exception("error: end date is greater than today date!");
 		} else
 			findRent(email).setStatus();
+
+	}
+
+	/**
+	 * Metodo que limpa o banco de dados
+	 *
+	 * */
+	public void cleanDB(){
+		usuarios.clear();
+		clientes.clear();
+		requisicoesPendentes.clear();
+		alugueis.clear();
+		veiculos.clear();
+		persistencia.persisteTudo();
+	}
+
+	/**
+	 * Metodo que persiste os dados
+	 * */
+	public void persiste() {
+		persistencia.persisteTudo();
 
 	}
 }

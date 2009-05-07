@@ -14,10 +14,15 @@ import Veiculos.Veiculo;
 /**
  * Classe que implementa a fachada da persistencia
  *
+ * @author Andressa Bezerra 20721005
+ * @author Lenin da Nobrega 20711433
+ * @author Niedja Roberta 20621165
+ * @author Renata Braga 20721334
+ * @author Tatyanne Lapa 20621176
  */
 public class FachadaPersistencia {
 
-	// private static FachadaPersistencia instanciaUnica;
+	private static FachadaPersistencia instanciaUnica;
 	private List<Usuario> usuarios;
 	private List<Cliente> clientes;
 	private List<String[]> requisicoesPendentes;
@@ -34,7 +39,7 @@ public class FachadaPersistencia {
 	 * construtor da classe FachadaPersistencia
 	 *
 	 */
-	public FachadaPersistencia() {
+	protected FachadaPersistencia() {
 		persistenciaUsuario = new Persistencia<Usuario>("./ProjetoSI1/Usuarios");
 		persistenciaCliente = new Persistencia<Cliente>("./ProjetoSI1/Clientes");
 		persistenciaRequisicoesPendentes = new Persistencia<String[]>(
@@ -55,17 +60,17 @@ public class FachadaPersistencia {
 
 	}
 
-	// /**
-	// * Singleton da fachada da persistencia
-	// *
-	// * @return FachadaPersistencia
-	// */
-	// public synchronized static FachadaPersistencia getInstance() {
-	// if (instanciaUnica == null) {
-	// instanciaUnica = new FachadaPersistencia();
-	// }
-	// return instanciaUnica;
-	// }
+	/**
+	 * Singleton da fachada da persistencia
+	 *
+	 * @return FachadaPersistencia
+	 */
+	public synchronized static FachadaPersistencia getInstance() {
+		if (instanciaUnica == null) {
+			instanciaUnica = new FachadaPersistencia();
+		}
+		return instanciaUnica;
+	}
 
 	/**
 	 * persiste os dados do sistema
@@ -77,7 +82,6 @@ public class FachadaPersistencia {
 		persistenciaAlugueis.persiste(alugueis);
 		persistenciaVeiculos.persiste(veiculos);
 	}
-
 
 	/**
 	 * Retorna uma lista virtual de usuarios

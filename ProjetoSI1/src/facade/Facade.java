@@ -21,7 +21,11 @@ public class Facade {
 
 	private static Facade instance;
 
-	private Empresa empresa = new Empresa();
+	private Empresa empresa;// = new Empresa();
+
+	protected Facade() {
+		empresa = new Empresa();
+	}
 
 	/**
 	 * Metodo estatico que cria uma instancia da fachada (Singleton)
@@ -34,7 +38,6 @@ public class Facade {
 		}
 		return instance;
 	}
-
 
 	public int getAllUsers() {
 		return empresa.getAllUsers();
@@ -124,6 +127,8 @@ public class Facade {
 			String end) throws Exception {
 		empresa.registerLateRent(plate, email, init, end);
 	}
-	
 
+	public void cleanDB() {
+		empresa.cleanDB();
+	}
 }

@@ -20,13 +20,11 @@ import com.thoughtworks.xstream.persistence.XmlArrayList;
 public class Persistencia<E> {
 
 	private List<E> listaDePersistencia;
-
 	/**
 	 * construtor da classe Persistencia
 	 *
 	 */
 	public Persistencia(String diretorio) {
-
 		// constrói a pasta do caminho se ela não existir
 		new File(diretorio).mkdirs();
 
@@ -61,9 +59,5 @@ public class Persistencia<E> {
 		for (E dado : lista) {
 			listaDePersistencia.add(dado);
 		}
-	}
-
-	public void apagaPersistencia (){
-		listaDePersistencia.clear();
 	}
 }
