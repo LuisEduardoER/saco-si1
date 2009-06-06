@@ -1,4 +1,5 @@
 package view;
+
 import java.util.Scanner;
 
 import Pessoas.Cliente;
@@ -15,7 +16,6 @@ import exception.InvalidCharacterException;
 import exception.InvalidParameterException;
 import exception.NotFoundException;
 import exception.RequiredFieldException;
-
 
 public class InterfaceTexto {
 	private Empresa empresa = new Empresa();
@@ -74,18 +74,19 @@ public class InterfaceTexto {
 		} else {
 			System.out.println("Opcao invalida.");
 		}
-		
+
 	}
 
 	/**
 	 * Cadastra um novo Item de forma interativa.
-	 * @throws AlreadyExistsException 
-	 * @throws InvalidCharacterException 
-	 * @throws RequiredFieldException 
+	 * 
+	 * @throws AlreadyExistsException
+	 * @throws InvalidCharacterException
+	 * @throws RequiredFieldException
 	 */
-	public void cadastrarItem() throws RequiredFieldException, InvalidCharacterException, AlreadyExistsException {
+	public void cadastrarItem() throws RequiredFieldException,
+			InvalidCharacterException, AlreadyExistsException {
 
-		
 		System.out.println("Classificacao:");
 		System.out.println("1.carro;");
 		System.out.println("2.moto;");
@@ -102,7 +103,8 @@ public class InterfaceTexto {
 			String ano = sc1.nextLine();
 			System.out.print("Digite o preco de aluguel por dia: ");
 			String precoPorDia = sc1.nextLine();
-			Carro carro = new Carro( modelo, cor, placa, Integer.parseInt(ano), Double.parseDouble(precoPorDia));
+			Carro carro = new Carro("carro", modelo, cor, placa, Integer
+					.parseInt(ano), Double.parseDouble(precoPorDia));
 			empresa.addVehicle("carro", modelo, cor, placa, ano, precoPorDia);
 		} else if (opcao == 2) {
 			System.out.print("Digite seu modelo: ");
@@ -115,12 +117,13 @@ public class InterfaceTexto {
 			String ano = sc1.nextLine();
 			System.out.print("Digite o preco de aluguel por dia: ");
 			String precoPorDia = sc1.nextLine();
-			Moto moto = new Moto( modelo, cor, placa, Integer.parseInt(ano), Double.parseDouble(precoPorDia));
+			Moto moto = new Moto("moto", modelo, cor, placa, Integer
+					.parseInt(ano), Double.parseDouble(precoPorDia));
 			empresa.addVehicle("moto", modelo, cor, placa, ano, precoPorDia);
 		} else {
 			System.out.println("Opcao invalida.");
 		}
-		
+
 	}
 
 	/**
@@ -133,11 +136,13 @@ public class InterfaceTexto {
 
 	/**
 	 * Exclui um item de forma interativa.
-	 * @throws NotFoundException 
-	 * @throws InvalidParameterException 
-	 * @throws EmptyDatabaseException 
+	 * 
+	 * @throws NotFoundException
+	 * @throws InvalidParameterException
+	 * @throws EmptyDatabaseException
 	 */
-	public void excluirVeiculo() throws EmptyDatabaseException, InvalidParameterException, NotFoundException {
+	public void excluirVeiculo() throws EmptyDatabaseException,
+			InvalidParameterException, NotFoundException {
 
 		System.out.print("Placa do veiculo: ");
 		String placa = sc1.nextLine();
@@ -174,21 +179,21 @@ public class InterfaceTexto {
 				cadastrarUsuario();
 				break;
 			case ADICIONAR_VEICULO:
-				cadastrarItem();
+				// add vehicle;
 				break;
 			case LISTAR_USUARIOS:
 				System.out.println("Lista de usuarios:");
-				 empresa.listarUsuarios();
+				// lista usuarios
 				break;
 			case LISTAR_VEICULOS:
 				System.out.println("Lista de veiculos:");
-				empresa.listarVeiculos();
+				// lista veiculos
 				break;
 			case EXCLUIR_USUARIO:
 				excluirUsuario();
 				break;
 			case EXLCUIR_VEICULO:
-				excluirVeiculo();
+				// remoce vehicle
 				break;
 			case FAZER_ALUGUEL:
 
@@ -210,5 +215,3 @@ public class InterfaceTexto {
 	}
 
 }
-
-

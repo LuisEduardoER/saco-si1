@@ -1,5 +1,7 @@
 package Pessoas;
 
+import interfaces.Locatario;
+
 /**
  * Classe que implementa o cliente da empresa
  *
@@ -10,7 +12,7 @@ package Pessoas;
  * @author Tatyanne Lapa 20621176
  */
 
-public class Cliente implements Pessoa {
+public class Cliente implements Pessoa, Locatario {
 
 	private String name, email, phone;
 

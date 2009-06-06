@@ -1,5 +1,8 @@
 package empresa;
 
+import interfaces.Alugavel;
+import interfaces.Locatario;
+
 /**
  * Classe que implementa o funcionamento de aluguel da empresa
  *
@@ -14,6 +17,8 @@ public class Aluguel {
 	private String plate, email, init, end;
 	private boolean situation = true;
 	private String status = "active";
+	private Alugavel alugavel;
+	private Locatario locatario;
 
 	/**
 	 * Contrutor da classe Aluguel
@@ -33,6 +38,13 @@ public class Aluguel {
 		this.init = inicio;
 		this.end = fim;
 
+	}
+	
+	public Aluguel (Alugavel alugavel, Locatario locatario, String inicio, String fim){
+		this.alugavel = alugavel;
+		this.locatario = locatario;
+		this.init = inicio;
+		this.end = fim;
 	}
 
 	/**
