@@ -2,8 +2,8 @@ package view;
 
 public class InterfaceWeb {
 
-	public void registrarReservaDoItem(){
-		
+	public String registrarReservaDoItem(){
+		return "Email de quem quer fazer a reserva.";
 	}
 	
 	public void exibirVeiculosDisponiveis(){
@@ -22,12 +22,12 @@ public class InterfaceWeb {
 		
 	}
 	
-	public void cadastrarCliente(){
-		
+	public String cadastrarCliente(){
+		return " Nome, email e telefone.";
 	}
 	
-	public void excluirCliente(){
-		
+	public String excluirCliente(){
+		return " Email do Cliente.";
 	}
 	
 	

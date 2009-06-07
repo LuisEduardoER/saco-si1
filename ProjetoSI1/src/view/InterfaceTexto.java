@@ -1,43 +1,26 @@
 package view;
 
-import java.util.Scanner;
-
-import Pessoas.Cliente;
-import Pessoas.Pessoa;
-import Pessoas.Usuario;
-import Veiculos.Carro;
-import Veiculos.Moto;
-import Veiculos.Veiculo;
-
-import empresa.Empresa;
-import exception.AlreadyExistsException;
-import exception.EmptyDatabaseException;
-import exception.InvalidCharacterException;
-import exception.InvalidParameterException;
-import exception.NotFoundException;
-import exception.RequiredFieldException;
-
 public class InterfaceTexto {
 		
 	
-	public void cadastrarUsuario() {
-
+	public String cadastrarUsuario() {
+		return " login, nome, email e telefone do funcionario.";
 	}
 
-	public void cadastrarCliente(){
-		
-	}
-	
-	public void cadastrarItem() {
-
+	public String cadastrarCliente(){
+		return " Nome, email e telefone.";
 	}
 	
-	public void registrarAluguel(){
-		
+	public String cadastrarItem() {
+		return "tipo,modelo,cor,placa,ano e preco.";
+	}
+	
+	public String registrarAluguel(){
+		return " email do cliente, placa do veiculo, data de inicio e fim.";
 	}
 	
 	public void registrarAluguelAtrasado(){	
-	
+		
 	}
 	
 	public void registrarLiberacaoDoItem(){
@@ -72,16 +55,16 @@ public class InterfaceTexto {
 		
 	}
 	
-	public void excluirUsuario() {
-		
+	public String excluirUsuario() {
+		return " Email do funcionario.";
 	}
 
-	public void excluirCliente(){
-		
+	public String excluirCliente(){
+		return "Email do cliente.";
 	}
 	
-	public void excluirItem() {
-
+	public String excluirItem() {
+		return " placa do veiculo.";
 	}
 
 	
