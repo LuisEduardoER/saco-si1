@@ -91,6 +91,22 @@ public class Controller {
 	public void registrarAluguelAtrasado(String plate, String email, String init,
 			String end) throws Exception {
 		empresa.registerLateRent(plate, email, init, end);
+	}	
+	
+	public void registrarReservaDoItem(){
+		//...
+	}
+	
+	public void registrarLiberacaoDoItem(){
+		//...
+	}
+	
+	public void registrarInteresseDoClienteNoItemAlugado(){
+		//...
+	}
+	
+	public void exibirRequisicoesDeAluguel(){
+		//...
 	}
 
 	

@@ -1,11 +1,11 @@
 package empresa;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 import persistencia.FachadaPersistencia;
 import util.ValidateInput;
+import Email.EmailGMAIL;
 import Pessoas.Cliente;
 import Pessoas.Usuario;
 import Veiculos.Veiculo;
@@ -16,6 +16,7 @@ import exception.InvalidParameterException;
 import exception.NoVehicleException;
 import exception.NotFoundException;
 import exception.RequiredFieldException;
+
 
 /**
  * Classe que implementa o funcionamento da empresa
@@ -58,7 +59,7 @@ public class Empresa {
 	/**
 	 * Metodo que retorna a quantidade de usuarios da empresa
 	 *
-	 * @return int quantidade de usuários
+	 * @return int quantidade de usuï¿½rios
 	 */
 	public int getAllUsers() {
 		return usuarios.size();
@@ -164,7 +165,7 @@ public class Empresa {
 
 	// Procurar um cliente na lista de clientes
 	/**
-	 * Metodo que verifica se alguém já é cliente
+	 * Metodo que verifica se alguï¿½m jï¿½ ï¿½ cliente
 	 *
 	 * @param String
 	 *            email
@@ -472,11 +473,14 @@ public class Empresa {
 	 */
 	public void registerLateRent(String plate, String email, String init,
 			String end) throws Exception {
-
+		
+		
 		Aluguel aluguel = findRent(email);
 		if (aluguel.getEnd().compareToIgnoreCase(end) == -1) {
 			throw new Exception("error: end date is greater than today date!");
 		} else
+			EmailGMAIL.enviarEmailPeloGmail("sacogrupo6@gmail.com", "ronaldo123", email, "Aluguel Atrasado", 
+					"Informamos que voce esta com um aluguel atrasado em nosso sistema!");
 			findRent(email).setStatus();
 
 	}

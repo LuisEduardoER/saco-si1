@@ -12,7 +12,7 @@ public class InterfaceMovel {
 	}
 	
 	public void registrarReservaDoItem(){
-		//fazer no controller
+		
 	}
 	
 	public void exibirVeiculosDisponiveis(){
