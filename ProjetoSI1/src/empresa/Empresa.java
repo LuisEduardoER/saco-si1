@@ -501,7 +501,7 @@ public class Empresa {
 	}
 	
 	public void exibirAlugueisVigentes(){
-		alugueis.Relatorio();
+		alugueis.relatorio();
 	}
 	
 	public void exibirRequisicoesDeAluguel(){
