@@ -1,5 +1,10 @@
 package facade;
 
+import interfaces.Listener;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
 import view.InterfaceMovel;
 import view.InterfaceTexto;
 import view.InterfaceWeb;
@@ -13,6 +18,7 @@ import exception.RequiredFieldException;
 
 public class Controller {
 
+	private Collection listeners;
 	private InterfaceTexto interfaceTexto;
 	private InterfaceWeb interfaceWeb;
 	private InterfaceMovel interfaceMovel;
@@ -23,7 +29,8 @@ public class Controller {
 		interfaceTexto = new InterfaceTexto();
 		interfaceWeb = new InterfaceWeb();
 		interfaceMovel = new InterfaceMovel();
-		empresa = new Empresa();		
+		empresa = new Empresa();
+		listeners = new ArrayList();
 	}
 	
 	public synchronized static Controller getInstance(){
@@ -31,6 +38,10 @@ public class Controller {
 			me = new Controller();
 		}
 		return me;
+	}
+	
+	public void addListener(Listener e){
+		listeners.add(e);
 	}
 	
 	public void cadastrarUsuario(String login, String name, String email, String phone)
