@@ -62,19 +62,23 @@ public class InterfaceTexto {
 	}
 	
 	public void registrarLiberacaoDoItem(){
-		//falta criar no controller
+		
 	}
 	
 	public void registrarInteresseDoClienteNoItemAlugado(){
-		// falta criar no controler
+		try {
+			controller.registrarInteresseDoClienteNoItemAlugado("email", "placa");
+		} catch (RequiredFieldException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	public void registrarReservaDoItem(){
-		//falta criar no controler
+		
 	}
 	
 	public void exibirRequisicoesDeAluguel(){
-		//falta criar no controller
+		
 	}
 	
 	public void exibirSituacaoDoItem(){
@@ -82,15 +86,15 @@ public class InterfaceTexto {
 	}
 	
 	public void exibirAlugueisVigentes(){
-		//falta criar no controller
+		
 	}
 	
 	public void exibirAlugueisAtrasados(){
-		//falta criar no controller
+		
 	}
 	
 	public void exibirVeiculosDisponiveis(){
-		//falta criar no controller
+		
 	}
 	
 	public void excluirUsuario() {

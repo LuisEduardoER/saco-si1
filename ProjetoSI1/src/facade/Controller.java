@@ -94,20 +94,34 @@ public class Controller {
 	}	
 	
 	public void registrarReservaDoItem(){
-		//...
+		
 	}
 	
 	public void registrarLiberacaoDoItem(){
-		//...
+		
 	}
 	
-	public void registrarInteresseDoClienteNoItemAlugado(){
-		//...
+	public void registrarInteresseDoClienteNoItemAlugado(String email, String placa) throws RequiredFieldException{
+		empresa.requestRent(email, placa);
 	}
 	
 	public void exibirRequisicoesDeAluguel(){
-		//...
+		
 	}
+	
+	public void exibirVeiculosDisponiveis(){
+		
+	}
+	
+	public void exibirAlugueisVigentes(){
+		
+	}
+	
+	public void exibirAlugueisAtrasados(){
+		
+	}
+	
+	
 
 	
 	

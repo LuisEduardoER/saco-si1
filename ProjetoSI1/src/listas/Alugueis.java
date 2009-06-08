@@ -24,7 +24,7 @@ public class Alugueis extends ArrayList<Aluguel> implements RelatorioIF {
 		return InstanciaUnica;
 	}
 
-	public String Relatorio() {
+	public String relatorio() {
 		String saida = null;
 		System.out.println("*******************  ALUGUEIS ***************** ");
 		for (int i = 0; i < alugueis.size(); i++) {

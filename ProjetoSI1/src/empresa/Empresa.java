@@ -166,7 +166,7 @@ public class Empresa {
 		clientes.add(newClient);
 	}
 
-	// Procurar um cliente na lista de clientes
+	
 	/**
 	 * Metodo que verifica se alguém já é cliente
 	 * 
@@ -487,6 +487,43 @@ public class Empresa {
 
 	}
 
+	public void registrarReservaDoItem(){
+		//A reserva em itens disponiveis
+		//************ FAZER!
+	}
+	
+	public void exibirVeiculosDisponiveis(){
+		//************ FAZER!
+	}
+	
+	public void exibirAlugueisAtrasados(){
+		//************ FAZER!
+	}
+	
+	public void exibirAlugueisVigentes(){
+		alugueis.Relatorio();
+	}
+	
+	public void exibirRequisicoesDeAluguel(){
+		//************* Fazer!
+	}
+	
+	public void registrarLiberacaoDoItem(){
+		//************* Fazer!
+	}
+	
+	public void notificarClientesSobreLiberacaoDeVeiculos(){
+		//************* FAZER!
+	}
+	
+	public void notificarClientesSobreAtrasoDeAluguel(){
+		//************* FAZER!
+	}
+	
+	public void NotificarClienteSobreDescarteDeReserva(){
+		//************ FAZER!
+	}
+	
 	/**
 	 * Metodo que limpa o banco de dados
 	 * 
