@@ -18,17 +18,6 @@ public class InterfaceWeb {
 		
 	}
 	
-	public void notificarClienteDoItemLiberado(){
-		
-	}
-	
-	public void notificarClienteComAluguelAtrasado(){
-		
-	}
-	
-	public void notificarClienteComReservaDescartada(){
-		
-	}
 	
 	public void cadastrarCliente(){
 		try {

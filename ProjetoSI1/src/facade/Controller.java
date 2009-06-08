@@ -44,6 +44,10 @@ public class Controller {
 		listeners.add(e);
 	}
 	
+	public void atualizarVeiculosDisponiveisNasInterfaces(){
+		
+	}
+	
 	public void cadastrarUsuario(String login, String name, String email, String phone)
 			throws AlreadyExistsException, RequiredFieldException,
 			InvalidCharacterException {
