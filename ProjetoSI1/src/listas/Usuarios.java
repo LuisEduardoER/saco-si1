@@ -24,7 +24,7 @@ public class Usuarios extends ArrayList<Usuario> implements RelatorioIF {
 		return InstanciaUnica;
 	}
 
-	public String Relatorio() {
+	public String relatorio() {
 		String saida = null;
 		System.out
 				.println("*******************  USUARIOS DO SISTEMA ***************** ");

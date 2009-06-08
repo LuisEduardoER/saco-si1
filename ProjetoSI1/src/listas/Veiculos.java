@@ -26,7 +26,7 @@ public class Veiculos extends HashMap<String, Veiculo> implements RelatorioIF {
 		return InstanciaUnica;
 	}
 
-	public String Relatorio() {
+	public String relatorio() {
 		String saida = null;
 		System.out
 				.println("*******************  VEICULOS DO SISTEMA ***************** ");

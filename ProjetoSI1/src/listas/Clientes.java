@@ -24,7 +24,7 @@ public class Clientes extends ArrayList<Cliente> implements RelatorioIF {
 		return InstanciaUnica;
 	}
 
-	public String Relatorio() {
+	public String relatorio() {
 		String saida = null;
 		System.out
 				.println("*******************  CLIENTES DO SISTEMA ***************** ");
