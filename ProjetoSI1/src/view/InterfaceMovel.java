@@ -1,9 +1,18 @@
 package view;
 
+import facade.Controller;
+
 public class InterfaceMovel {
 
-	public String registrarReservaDoItem(){
-		return "Email de quem quer fazer a reserva.";
+	private Controller controller;
+	
+	
+	public InterfaceMovel(){
+		this.controller = Controller.getInstance();
+	}
+	
+	public void registrarReservaDoItem(){
+		//fazer no controller
 	}
 	
 	public void exibirVeiculosDisponiveis(){

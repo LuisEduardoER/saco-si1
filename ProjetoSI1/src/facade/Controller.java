@@ -1,10 +1,8 @@
 package facade;
 
-import interfaces.Listener;
-
-import java.util.ArrayList;
-import java.util.Collection;
-
+import view.InterfaceMovel;
+import view.InterfaceTexto;
+import view.InterfaceWeb;
 import empresa.Empresa;
 import exception.AlreadyExistsException;
 import exception.EmptyDatabaseException;
@@ -13,23 +11,26 @@ import exception.InvalidParameterException;
 import exception.NotFoundException;
 import exception.RequiredFieldException;
 
-import view.InterfaceMovel;
-import view.InterfaceTexto;
-import view.InterfaceWeb;
-
 public class Controller {
 
 	private InterfaceTexto interfaceTexto;
 	private InterfaceWeb interfaceWeb;
 	private InterfaceMovel interfaceMovel;
 	private Empresa empresa;
+	private static Controller me = null;
 	
 	protected Controller(){
 		interfaceTexto = new InterfaceTexto();
 		interfaceWeb = new InterfaceWeb();
 		interfaceMovel = new InterfaceMovel();
-		empresa = new Empresa();
-		
+		empresa = new Empresa();		
+	}
+	
+	public synchronized static Controller getInstance(){
+		if(me == null){
+			me = new Controller();
+		}
+		return me;
 	}
 	
 	public void cadastrarUsuario(String login, String name, String email, String phone)
@@ -81,8 +82,6 @@ public class Controller {
 		empresa.registerLateRent(plate, email, init, end);
 	}
 
-	public void atualizarListaDeVeiculosDisponiveis(){
-		
-	}
+	
 	
 }

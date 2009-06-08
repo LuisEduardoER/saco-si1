@@ -1,9 +1,17 @@
 package view;
 
+import facade.Controller;
+
 public class InterfaceWeb {
 
-	public String registrarReservaDoItem(){
-		return "Email de quem quer fazer a reserva.";
+	private Controller controller;
+	
+	public InterfaceWeb(){
+		this.controller = Controller.getInstance();
+	}
+	
+	public void registrarReservaDoItem(){
+		//fazer no controller
 	}
 	
 	public void exibirVeiculosDisponiveis(){
@@ -22,12 +30,20 @@ public class InterfaceWeb {
 		
 	}
 	
-	public String cadastrarCliente(){
-		return " Nome, email e telefone.";
+	public void cadastrarCliente(){
+		try {
+			controller.cadastrarCliente("name", "email", "phone");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
-	public String excluirCliente(){
-		return " Email do Cliente.";
+	public void excluirCliente(){
+		try {
+			controller.excluirCliente("email");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	
