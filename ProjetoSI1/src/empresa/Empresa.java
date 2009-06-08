@@ -1,7 +1,11 @@
 package empresa;
 
 import java.util.ArrayList;
-import java.util.Map;
+
+import listas.Alugueis;
+import listas.Clientes;
+import listas.Usuarios;
+import listas.Veiculos;
 
 import persistencia.FachadaPersistencia;
 import util.ValidateInput;
@@ -17,23 +21,22 @@ import exception.NoVehicleException;
 import exception.NotFoundException;
 import exception.RequiredFieldException;
 
-
 /**
  * Classe que implementa o funcionamento da empresa
- *
+ * 
  * @author Andressa Bezerra 20721005
  * @author Lenin da Nobrega 20711433
- * @author Niedja Roberta 	20621165
- * @author Renata Braga		20721334
- * @author Tatyanne Lapa	20621176
+ * @author Niedja Roberta 20621165
+ * @author Renata Braga 20721334
+ * @author Tatyanne Lapa 20621176
  */
 public class Empresa {
 
-	ArrayList<Usuario> usuarios;
-	ArrayList<Cliente> clientes;
-	ArrayList<Aluguel> alugueis;
+	Usuarios usuarios;
+	Clientes clientes;
+	Alugueis alugueis;
 	ArrayList<String[]> requisicoesPendentes;
-	Map<String, Veiculo> veiculos;
+	Veiculos veiculos;
 	FachadaPersistencia persistencia;
 
 	/**
@@ -41,25 +44,25 @@ public class Empresa {
 	 */
 	public Empresa() {
 		persistencia = FachadaPersistencia.getInstance();
-		usuarios = (ArrayList<Usuario>) persistencia.getUserList();
-		clientes = (ArrayList<Cliente>) persistencia.getClientList();
-		alugueis = (ArrayList<Aluguel>) persistencia.getRents();
+		usuarios = (Usuarios) persistencia.getUserList();
+		clientes = (Clientes) persistencia.getClientList();
+		alugueis = (Alugueis) persistencia.getRents();
 		requisicoesPendentes = (ArrayList<String[]>) persistencia
 				.getPendentsRequests();
-		veiculos = (Map<String, Veiculo>) persistencia.getVehicles();
-//
-//		usuarios = new ArrayList<Usuario>();
-//		clientes = new ArrayList<Cliente>();
-//		alugueis = new ArrayList<Aluguel>();
-//		requisicoesPendentes = new ArrayList<String[]>();
-//		veiculos = new HashMap<String, Veiculo>();
+		veiculos = (Veiculos) persistencia.getVehicles();
+		//
+		// usuarios = new ArrayList<Usuario>();
+		// clientes = new ArrayList<Cliente>();
+		// alugueis = new ArrayList<Aluguel>();
+		// requisicoesPendentes = new ArrayList<String[]>();
+		// veiculos = new HashMap<String, Veiculo>();
 
 	}
 
 	/**
 	 * Metodo que retorna a quantidade de usuarios da empresa
-	 *
-	 * @return int quantidade de usu�rios
+	 * 
+	 * @return int quantidade de usuários
 	 */
 	public int getAllUsers() {
 		return usuarios.size();
@@ -67,7 +70,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que adiciona um novo usuario (funcionario) na empresa
-	 *
+	 * 
 	 * @param String
 	 *            login
 	 * @param String
@@ -97,7 +100,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que remove um funcionario da empresa
-	 *
+	 * 
 	 * @param String
 	 *            emailOrLogin
 	 * @throws NotFoundException
@@ -126,7 +129,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que retorna a quantidade de clientes da empresa
-	 *
+	 * 
 	 * @return int quantidade de clientes
 	 */
 	public int getAllCustomers() {
@@ -135,7 +138,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que adiciona um cliente a empresa
-	 *
+	 * 
 	 * @param String
 	 *            name
 	 * @param String
@@ -165,8 +168,8 @@ public class Empresa {
 
 	// Procurar um cliente na lista de clientes
 	/**
-	 * Metodo que verifica se algu�m j� � cliente
-	 *
+	 * Metodo que verifica se alguém já é cliente
+	 * 
 	 * @param String
 	 *            email
 	 * @return boolean
@@ -182,10 +185,10 @@ public class Empresa {
 
 	/**
 	 * Metodo que procura um aluguel
-	 *
+	 * 
 	 * @param String
 	 *            email
-	 *
+	 * 
 	 * @return Aluguel aluguel
 	 */
 	public Aluguel findRent(String email) {
@@ -199,10 +202,10 @@ public class Empresa {
 
 	/**
 	 * Metodo que remove um cliente da empresa
-	 *
+	 * 
 	 * @param String
 	 *            email
-	 *
+	 * 
 	 * @throws InvalidParameterException
 	 * @throws EmptyDatabaseException
 	 * @throws NotFoundException
@@ -229,9 +232,9 @@ public class Empresa {
 
 	/**
 	 * Metodo que retorna a quantidade de veiculos da empresa
-	 *
+	 * 
 	 * @return int quantidade de veiculos
-	 *
+	 * 
 	 */
 	public int getAllVehicles() {
 		return veiculos.size();
@@ -239,7 +242,7 @@ public class Empresa {
 
 	/**
 	 * Metodo para adicionar um veiculo a empresa
-	 *
+	 * 
 	 * @param String
 	 *            tipo
 	 * @param String
@@ -277,7 +280,7 @@ public class Empresa {
 
 	/**
 	 * Metodo para remover um veiculo da empresa
-	 *
+	 * 
 	 * @param placa
 	 * @throws NoVehicleException
 	 * @throws InvalidParameterException
@@ -297,7 +300,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que retorna as requisicoes de alugueis pendentes
-	 *
+	 * 
 	 * @return int quantidade de requisicoes pendentes
 	 */
 	public int getAllPendentRentRequests() {
@@ -306,12 +309,12 @@ public class Empresa {
 
 	/**
 	 * Metodo que faz a requisicao de um aluguel
-	 *
+	 * 
 	 * @param String
 	 *            email
 	 * @param String
 	 *            placa
-	 *
+	 * 
 	 */
 	public void requestRent(String email, String placa)
 			throws RequiredFieldException {
@@ -324,7 +327,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que retorna a quantidade de alugueis
-	 *
+	 * 
 	 * @return int quantidade de alugueis
 	 */
 	public int getAllRents() {
@@ -333,7 +336,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que adiciona um alguel e altera a situacao do veiculo
-	 *
+	 * 
 	 * @param String
 	 *            placa
 	 * @param String
@@ -360,10 +363,10 @@ public class Empresa {
 
 	/**
 	 * Metodo que retorna a quantidade de alugueis feitos por cliente
-	 *
+	 * 
 	 * @param String
 	 *            email
-	 *
+	 * 
 	 * @return int quantidade de alugueis por cliente
 	 */
 	public int getRentsByCustomer(String email) {
@@ -378,10 +381,10 @@ public class Empresa {
 
 	/**
 	 * Metodo que retorna a quantidade de alugueis por veiculo
-	 *
+	 * 
 	 * @param String
 	 *            email
-	 *
+	 * 
 	 * @return int quantidade de alugueis por veiculo
 	 */
 	public int getRentsByVehicle(String placa) {
@@ -396,7 +399,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que retorna a quantidade de alugueis ativos
-	 *
+	 * 
 	 * @return quantidade de alugueis ativos
 	 */
 	public int getAllActiveRents() {
@@ -412,7 +415,7 @@ public class Empresa {
 	/**
 	 * Metodo que retorna a situacao do veiculo (se ele esta "unavailable" ou
 	 * "available"
-	 *
+	 * 
 	 * @param String
 	 *            placa
 	 * @return situacao do veiculo
@@ -423,7 +426,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que retorna a situacao do aluguel (se esta "late" ou "ative")
-	 *
+	 * 
 	 * @param String
 	 *            email
 	 * @param String
@@ -442,7 +445,7 @@ public class Empresa {
 	/**
 	 * Metodo que muda a situacao do veiculo se ele for alugado e remove o
 	 * veiculo dos alugueis
-	 *
+	 * 
 	 * @param String
 	 *            placa
 	 * @return boolean
@@ -460,7 +463,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que registra um aluguel atrasado
-	 *
+	 * 
 	 * @param String
 	 *            placa
 	 * @param String
@@ -473,13 +476,12 @@ public class Empresa {
 	 */
 	public void registerLateRent(String plate, String email, String init,
 			String end) throws Exception {
-		
-		
+
 		Aluguel aluguel = findRent(email);
 		if (aluguel.getEnd().compareToIgnoreCase(end) == -1) {
 			throw new Exception("error: end date is greater than today date!");
 		} else
-			EmailGMAIL.enviarEmailPeloGmail("sacogrupo6@gmail.com", "ronaldo123", email, "Aluguel Atrasado", 
+			EmailGMAIL.enviarEmailPeloGmail("sacogrupo6@gmail.com", "ronaldo123", email, "Informacao de Atraso de Aluguel",
 					"Informamos que voce esta com um aluguel atrasado em nosso sistema!");
 			findRent(email).setStatus();
 
@@ -487,9 +489,9 @@ public class Empresa {
 
 	/**
 	 * Metodo que limpa o banco de dados
-	 *
+	 * 
 	 * */
-	public void cleanDB(){
+	public void cleanDB() {
 		usuarios.clear();
 		clientes.clear();
 		requisicoesPendentes.clear();
