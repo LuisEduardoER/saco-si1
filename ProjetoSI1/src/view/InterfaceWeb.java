@@ -11,7 +11,7 @@ public class InterfaceWeb {
 	}
 	
 	public void registrarReservaDoItem(){
-		//fazer no controller
+		
 	}
 	
 	public void exibirVeiculosDisponiveis(){

@@ -9,6 +9,9 @@ import view.InterfaceMovel;
 import view.InterfaceTexto;
 import view.InterfaceWeb;
 import empresa.Empresa;
+import eventos.EventoNovoVeiculo;
+import eventos.EventoReservaDescartada;
+import eventos.EventoVeiculoDevolvido;
 import exception.AlreadyExistsException;
 import exception.EmptyDatabaseException;
 import exception.InvalidCharacterException;
@@ -44,7 +47,15 @@ public class Controller {
 		listeners.add(e);
 	}
 	
-	public void atualizarVeiculosDisponiveisNasInterfaces(){
+	public void atualizarVeiculosDisponiveisNasInterfaces(EventoNovoVeiculo e){
+		
+	}
+	
+	public void atualizarVeiculosDisponiveisNasInterfaces(EventoVeiculoDevolvido e){
+		
+	}
+	
+	public void atualizarVeiculosDisponiveisNasInterfaces(EventoReservaDescartada e){
 		
 	}
 	
