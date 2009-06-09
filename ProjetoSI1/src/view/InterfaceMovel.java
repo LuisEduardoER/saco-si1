@@ -1,8 +1,10 @@
 package view;
 
+import interfaces.Listener;
+import eventos.Evento;
 import facade.Controller;
 
-public class InterfaceMovel {
+public class InterfaceMovel implements Listener {
 
 	private Controller controller;
 	
@@ -15,8 +17,8 @@ public class InterfaceMovel {
 		
 	}
 	
-	public void exibirVeiculosDisponiveis(){
-		
+	public void receberEvento(Evento e){
+		System.out.println("Atualizando interface movel.");
 	}
 	
 	

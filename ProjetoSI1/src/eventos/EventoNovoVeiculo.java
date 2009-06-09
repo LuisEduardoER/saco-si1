@@ -1,5 +1,5 @@
 package eventos;
 
-public class EventoNovoVeiculo {
+public class EventoNovoVeiculo implements Evento {
 
 }

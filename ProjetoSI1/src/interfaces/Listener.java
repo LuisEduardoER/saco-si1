@@ -1,6 +1,8 @@
 package interfaces;
 
+import eventos.Evento;
+
 public interface Listener {
 	
-	void exibirVeiculosDisponiveis();
+	void receberEvento(Evento e);
 }

@@ -5,6 +5,8 @@ import interfaces.Listener;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.swing.text.html.HTMLDocument.Iterator;
+
 import view.InterfaceMovel;
 import view.InterfaceTexto;
 import view.InterfaceWeb;
@@ -21,7 +23,7 @@ import exception.RequiredFieldException;
 
 public class Controller {
 
-	private Collection listeners;
+	private Collection listeners = new ArrayList();
 	private InterfaceTexto interfaceTexto;
 	private InterfaceWeb interfaceWeb;
 	private InterfaceMovel interfaceMovel;
@@ -33,7 +35,7 @@ public class Controller {
 		interfaceWeb = new InterfaceWeb();
 		interfaceMovel = new InterfaceMovel();
 		empresa = new Empresa();
-		listeners = new ArrayList();
+		
 	}
 	
 	public synchronized static Controller getInstance(){
@@ -48,15 +50,21 @@ public class Controller {
 	}
 	
 	public void atualizarVeiculosDisponiveisNasInterfaces(EventoNovoVeiculo e){
-		
+		for (java.util.Iterator iter = listeners.iterator(); iter.hasNext();) {
+			((Listener) iter.next()).receberEvento(e);			
+		}
 	}
 	
 	public void atualizarVeiculosDisponiveisNasInterfaces(EventoVeiculoDevolvido e){
-		
+		for (java.util.Iterator iter = listeners.iterator(); iter.hasNext();) {
+			((Listener) iter.next()).receberEvento(e);			
+		}
 	}
 	
 	public void atualizarVeiculosDisponiveisNasInterfaces(EventoReservaDescartada e){
-		
+		for (java.util.Iterator iter = listeners.iterator(); iter.hasNext();) {
+			((Listener) iter.next()).receberEvento(e);			
+		}
 	}
 	
 	public void cadastrarUsuario(String login, String name, String email, String phone)

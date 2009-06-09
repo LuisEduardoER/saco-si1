@@ -1,8 +1,10 @@
 package view;
 
+import interfaces.Listener;
+import eventos.Evento;
 import facade.Controller;
 
-public class InterfaceWeb {
+public class InterfaceWeb implements Listener{
 
 	private Controller controller;
 	
@@ -14,8 +16,8 @@ public class InterfaceWeb {
 		
 	}
 	
-	public void exibirVeiculosDisponiveis(){
-		
+	public void receberEvento(Evento e){
+		System.out.println("Atualizando interface web");
 	}
 	
 	

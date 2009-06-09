@@ -1,5 +1,5 @@
 package eventos;
 
-public class EventoReservaDescartada {
+public class EventoReservaDescartada implements Evento{
 
 }
