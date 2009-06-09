@@ -1,0 +1,38 @@
+#src_eventos_eventosClassDiagram_ucd{
+width: 694;
+height: 592;
+overflow: hidden;
+background: url(src_eventos_eventosClassDiagram_ucd.png) top left no-repeat;
+}
+#eventos_Evento{
+position: absolute;
+float: left;
+width: 85;
+height: 61;
+margin-left: 329;
+margin-top: 322;
+}
+#eventos_EventoVeiculoDevolvido{
+position: absolute;
+float: left;
+width: 194;
+height: 47;
+margin-left: 417;
+margin-top: 50;
+}
+#eventos_EventoReservaDescartada{
+position: absolute;
+float: left;
+width: 205;
+height: 47;
+margin-left: 50;
+margin-top: 382;
+}
+#eventos_EventoNovoVeiculo{
+position: absolute;
+float: left;
+width: 163;
+height: 47;
+margin-left: 521;
+margin-top: 535;
+}

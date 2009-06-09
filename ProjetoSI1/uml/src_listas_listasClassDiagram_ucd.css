@@ -1,0 +1,86 @@
+#src_listas_listasClassDiagram_ucd{
+width: 3915;
+height: 4174;
+overflow: hidden;
+background: url(src_listas_listasClassDiagram_ucd.png) top left no-repeat;
+}
+#empresa_Aluguel{
+position: absolute;
+float: left;
+width: 152;
+height: 345;
+margin-left: 1789;
+margin-top: 50;
+}
+#listas_Alugueis{
+position: absolute;
+float: left;
+width: 126;
+height: 147;
+margin-left: 953;
+margin-top: 1048;
+}
+#listas_Clientes{
+position: absolute;
+float: left;
+width: 126;
+height: 147;
+margin-left: 3682;
+margin-top: 1914;
+}
+#Veiculos_Veiculo{
+position: absolute;
+float: left;
+width: 150;
+height: 443;
+margin-left: 50;
+margin-top: 2203;
+}
+#listas_Veiculos{
+position: absolute;
+float: left;
+width: 126;
+height: 147;
+margin-left: 659;
+margin-top: 3414;
+}
+#Pessoas_Usuario{
+position: absolute;
+float: left;
+width: 147;
+height: 281;
+margin-left: 3758;
+margin-top: 3379;
+}
+#Pessoas_Cliente{
+position: absolute;
+float: left;
+width: 144;
+height: 227;
+margin-left: 3578;
+margin-top: 618;
+}
+#empresa_Empresa{
+position: absolute;
+float: left;
+width: 270;
+height: 797;
+margin-left: 2157;
+margin-top: 1993;
+}
+#interfaces_RelatorioIF{
+position: absolute;
+float: left;
+width: 180;
+height: 79;
+margin-left: 1897;
+margin-top: 2810;
+}
+#listas_Usuarios{
+position: absolute;
+float: left;
+width: 126;
+height: 147;
+margin-left: 2563;
+margin-top: 4017;
+}

@@ -1,0 +1,134 @@
+#src_empresa_empresaClassDiagram_ucd{
+width: 3249;
+height: 2528;
+overflow: hidden;
+background: url(src_empresa_empresaClassDiagram_ucd.png) top left no-repeat;
+}
+#exception_InvalidCharacterException{
+position: absolute;
+float: left;
+width: 279;
+height: 65;
+margin-left: 2960;
+margin-top: 1159;
+}
+#empresa_Empresa{
+position: absolute;
+float: left;
+width: 270;
+height: 797;
+margin-left: 2018;
+margin-top: 1017;
+}
+#exception_NotFoundException{
+position: absolute;
+float: left;
+width: 235;
+height: 65;
+margin-left: 2973;
+margin-top: 735;
+}
+#listas_Alugueis{
+position: absolute;
+float: left;
+width: 135;
+height: 147;
+margin-left: 1229;
+margin-top: 998;
+}
+#listas_Clientes{
+position: absolute;
+float: left;
+width: 131;
+height: 147;
+margin-left: 2043;
+margin-top: 1939;
+}
+#Email_EmailGMAIL{
+position: absolute;
+float: left;
+width: 162;
+height: 227;
+margin-left: 2717;
+margin-top: 359;
+}
+#exception_AlreadyExistsException{
+position: absolute;
+float: left;
+width: 259;
+height: 65;
+margin-left: 2368;
+margin-top: 71;
+}
+#Pessoas_Cliente{
+position: absolute;
+float: left;
+width: 144;
+height: 227;
+margin-left: 1523;
+margin-top: 1880;
+}
+#interfaces_Locatario{
+position: absolute;
+float: left;
+width: 170;
+height: 115;
+margin-left: 827;
+margin-top: 2403;
+}
+#listas_Veiculos{
+position: absolute;
+float: left;
+width: 134;
+height: 147;
+margin-left: 1154;
+margin-top: 489;
+}
+#listas_Usuarios{
+position: absolute;
+float: left;
+width: 134;
+height: 147;
+margin-left: 1922;
+margin-top: 50;
+}
+#empresa_Aluguel{
+position: absolute;
+float: left;
+width: 107;
+height: 345;
+margin-left: 1009;
+margin-top: 1502;
+}
+#interfaces_Alugavel{
+position: absolute;
+float: left;
+width: 166;
+height: 97;
+margin-left: 50;
+margin-top: 1385;
+}
+#exception_RequiredFieldException{
+position: absolute;
+float: left;
+width: 264;
+height: 65;
+margin-left: 2467;
+margin-top: 1927;
+}
+#Veiculos_Veiculo{
+position: absolute;
+float: left;
+width: 150;
+height: 443;
+margin-left: 1498;
+margin-top: 120;
+}
+#util_ValidateInput{
+position: absolute;
+float: left;
+width: 153;
+height: 137;
+margin-left: 2855;
+margin-top: 1630;
+}

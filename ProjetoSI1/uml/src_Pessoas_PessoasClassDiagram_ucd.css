@@ -1,0 +1,54 @@
+#src_Pessoas_PessoasClassDiagram_ucd{
+width: 647;
+height: 2593;
+overflow: hidden;
+background: url(src_Pessoas_PessoasClassDiagram_ucd.png) top left no-repeat;
+}
+#Pessoas_Usuario{
+position: absolute;
+float: left;
+width: 106;
+height: 281;
+margin-left: 312;
+margin-top: 1809;
+}
+#Pessoas_Pessoa{
+position: absolute;
+float: left;
+width: 106;
+height: 169;
+margin-left: 103;
+margin-top: 1099;
+}
+#interfaces_Locatario{
+position: absolute;
+float: left;
+width: 170;
+height: 115;
+margin-left: 77;
+margin-top: 1334;
+}
+#Pessoas_Cliente{
+position: absolute;
+float: left;
+width: 106;
+height: 227;
+margin-left: 407;
+margin-top: 669;
+}
+#listas_Usuarios{
+position: absolute;
+float: left;
+width: 134;
+height: 147;
+margin-left: 293;
+margin-top: 2436;
+}
+#listas_Clientes{
+position: absolute;
+float: left;
+width: 131;
+height: 147;
+margin-left: 506;
+margin-top: 50;
+}

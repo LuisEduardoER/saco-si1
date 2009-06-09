@@ -1,0 +1,54 @@
+#src_interfaces_interfacesClassDiagram_ucd{
+width: 628;
+height: 668;
+overflow: hidden;
+background: url(src_interfaces_interfacesClassDiagram_ucd.png) top left no-repeat;
+}
+#interfaces_RelatorioIF{
+position: absolute;
+float: left;
+width: 110;
+height: 79;
+margin-left: 452;
+margin-top: 579;
+}
+#eventos_Evento{
+position: absolute;
+float: left;
+width: 140;
+height: 61;
+margin-left: 262;
+margin-top: 579;
+}
+#interfaces_Listener{
+position: absolute;
+float: left;
+width: 132;
+height: 79;
+margin-left: 50;
+margin-top: 579;
+}
+#interfaces_Alugavel{
+position: absolute;
+float: left;
+width: 104;
+height: 97;
+margin-left: 514;
+margin-top: 318;
+}
+#empresa_Aluguel{
+position: absolute;
+float: left;
+width: 152;
+height: 345;
+margin-left: 282;
+margin-top: 184;
+}
+#interfaces_Locatario{
+position: absolute;
+float: left;
+width: 106;
+height: 115;
+margin-left: 50;
+margin-top: 50;
+}

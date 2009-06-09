@@ -1,0 +1,134 @@
+#src_exception_exceptionClassDiagram_ucd{
+width: 743;
+height: 815;
+overflow: hidden;
+background: url(src_exception_exceptionClassDiagram_ucd.png) top left no-repeat;
+}
+#exception_VehicleDoNotExistException{
+position: absolute;
+float: left;
+width: 219;
+height: 65;
+margin-left: 50;
+margin-top: 165;
+}
+#exception_NoUserException{
+position: absolute;
+float: left;
+width: 148;
+height: 65;
+margin-left: 50;
+margin-top: 740;
+}
+#exception_NoSuchClientException{
+position: absolute;
+float: left;
+width: 189;
+height: 65;
+margin-left: 544;
+margin-top: 395;
+}
+#exception_NoSuchUserException{
+position: absolute;
+float: left;
+width: 180;
+height: 65;
+margin-left: 288;
+margin-top: 510;
+}
+#exception_VehicleAlreadyExistsException{
+position: absolute;
+float: left;
+width: 236;
+height: 65;
+margin-left: 382;
+margin-top: 50;
+}
+#exception_AllInvalidException{
+position: absolute;
+float: left;
+width: 163;
+height: 65;
+margin-left: 264;
+margin-top: 625;
+}
+#exception_RequiredFieldException{
+position: absolute;
+float: left;
+width: 193;
+height: 65;
+margin-left: 301;
+margin-top: 395;
+}
+#exception_NotFoundException{
+position: absolute;
+float: left;
+width: 164;
+height: 65;
+margin-left: 50;
+margin-top: 625;
+}
+#exception_NoVehicleException{
+position: absolute;
+float: left;
+width: 168;
+height: 65;
+margin-left: 518;
+margin-top: 510;
+}
+#exception_NoClientException{
+position: absolute;
+float: left;
+width: 157;
+height: 65;
+margin-left: 477;
+margin-top: 625;
+}
+#exception_EmptyDatabaseException{
+position: absolute;
+float: left;
+width: 201;
+height: 65;
+margin-left: 50;
+margin-top: 395;
+}
+#exception_AllParametersAreMandatoryException{
+position: absolute;
+float: left;
+width: 282;
+height: 65;
+margin-left: 50;
+margin-top: 50;
+}
+#exception_AlreadyExistsException{
+position: absolute;
+float: left;
+width: 188;
+height: 65;
+margin-left: 50;
+margin-top: 510;
+}
+#exception_InvalidParameterException{
+position: absolute;
+float: left;
+width: 213;
+height: 65;
+margin-left: 50;
+margin-top: 280;
+}
+#exception_UserAlreadyExistsException{
+position: absolute;
+float: left;
+width: 216;
+height: 65;
+margin-left: 319;
+margin-top: 165;
+}
+#exception_InvalidCharacterException{
+position: absolute;
+float: left;
+width: 208;
+height: 65;
+margin-left: 313;
+margin-top: 280;
+}
