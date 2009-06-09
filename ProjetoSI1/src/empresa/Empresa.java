@@ -23,7 +23,7 @@ import exception.RequiredFieldException;
 
 /**
  * Classe que implementa o funcionamento da empresa
- * 
+ *
  * @author Andressa Bezerra 20721005
  * @author Lenin da Nobrega 20711433
  * @author Niedja Roberta 20621165
@@ -50,18 +50,11 @@ public class Empresa {
 		requisicoesPendentes = (ArrayList<String[]>) persistencia
 				.getPendentsRequests();
 		veiculos = (Veiculos) persistencia.getVehicles();
-		//
-		// usuarios = new ArrayList<Usuario>();
-		// clientes = new ArrayList<Cliente>();
-		// alugueis = new ArrayList<Aluguel>();
-		// requisicoesPendentes = new ArrayList<String[]>();
-		// veiculos = new HashMap<String, Veiculo>();
-
 	}
 
 	/**
 	 * Metodo que retorna a quantidade de usuarios da empresa
-	 * 
+	 *
 	 * @return int quantidade de usuários
 	 */
 	public int getAllUsers() {
@@ -70,7 +63,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que adiciona um novo usuario (funcionario) na empresa
-	 * 
+	 *
 	 * @param String
 	 *            login
 	 * @param String
@@ -100,7 +93,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que remove um funcionario da empresa
-	 * 
+	 *
 	 * @param String
 	 *            emailOrLogin
 	 * @throws NotFoundException
@@ -129,7 +122,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que retorna a quantidade de clientes da empresa
-	 * 
+	 *
 	 * @return int quantidade de clientes
 	 */
 	public int getAllCustomers() {
@@ -138,7 +131,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que adiciona um cliente a empresa
-	 * 
+	 *
 	 * @param String
 	 *            name
 	 * @param String
@@ -166,10 +159,10 @@ public class Empresa {
 		clientes.add(newClient);
 	}
 
-	
+
 	/**
 	 * Metodo que verifica se alguém já é cliente
-	 * 
+	 *
 	 * @param String
 	 *            email
 	 * @return boolean
@@ -185,10 +178,10 @@ public class Empresa {
 
 	/**
 	 * Metodo que procura um aluguel
-	 * 
+	 *
 	 * @param String
 	 *            email
-	 * 
+	 *
 	 * @return Aluguel aluguel
 	 */
 	public Aluguel findRent(String email) {
@@ -202,10 +195,10 @@ public class Empresa {
 
 	/**
 	 * Metodo que remove um cliente da empresa
-	 * 
+	 *
 	 * @param String
 	 *            email
-	 * 
+	 *
 	 * @throws InvalidParameterException
 	 * @throws EmptyDatabaseException
 	 * @throws NotFoundException
@@ -232,9 +225,9 @@ public class Empresa {
 
 	/**
 	 * Metodo que retorna a quantidade de veiculos da empresa
-	 * 
+	 *
 	 * @return int quantidade de veiculos
-	 * 
+	 *
 	 */
 	public int getAllVehicles() {
 		return veiculos.size();
@@ -242,7 +235,7 @@ public class Empresa {
 
 	/**
 	 * Metodo para adicionar um veiculo a empresa
-	 * 
+	 *
 	 * @param String
 	 *            tipo
 	 * @param String
@@ -280,7 +273,7 @@ public class Empresa {
 
 	/**
 	 * Metodo para remover um veiculo da empresa
-	 * 
+	 *
 	 * @param placa
 	 * @throws NoVehicleException
 	 * @throws InvalidParameterException
@@ -300,7 +293,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que retorna as requisicoes de alugueis pendentes
-	 * 
+	 *
 	 * @return int quantidade de requisicoes pendentes
 	 */
 	public int getAllPendentRentRequests() {
@@ -309,12 +302,12 @@ public class Empresa {
 
 	/**
 	 * Metodo que faz a requisicao de um aluguel
-	 * 
+	 *
 	 * @param String
 	 *            email
 	 * @param String
 	 *            placa
-	 * 
+	 *
 	 */
 	public void requestRent(String email, String placa)
 			throws RequiredFieldException {
@@ -327,7 +320,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que retorna a quantidade de alugueis
-	 * 
+	 *
 	 * @return int quantidade de alugueis
 	 */
 	public int getAllRents() {
@@ -336,7 +329,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que adiciona um alguel e altera a situacao do veiculo
-	 * 
+	 *
 	 * @param String
 	 *            placa
 	 * @param String
@@ -363,10 +356,10 @@ public class Empresa {
 
 	/**
 	 * Metodo que retorna a quantidade de alugueis feitos por cliente
-	 * 
+	 *
 	 * @param String
 	 *            email
-	 * 
+	 *
 	 * @return int quantidade de alugueis por cliente
 	 */
 	public int getRentsByCustomer(String email) {
@@ -381,10 +374,10 @@ public class Empresa {
 
 	/**
 	 * Metodo que retorna a quantidade de alugueis por veiculo
-	 * 
+	 *
 	 * @param String
 	 *            email
-	 * 
+	 *
 	 * @return int quantidade de alugueis por veiculo
 	 */
 	public int getRentsByVehicle(String placa) {
@@ -399,7 +392,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que retorna a quantidade de alugueis ativos
-	 * 
+	 *
 	 * @return quantidade de alugueis ativos
 	 */
 	public int getAllActiveRents() {
@@ -415,7 +408,7 @@ public class Empresa {
 	/**
 	 * Metodo que retorna a situacao do veiculo (se ele esta "unavailable" ou
 	 * "available"
-	 * 
+	 *
 	 * @param String
 	 *            placa
 	 * @return situacao do veiculo
@@ -426,7 +419,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que retorna a situacao do aluguel (se esta "late" ou "ative")
-	 * 
+	 *
 	 * @param String
 	 *            email
 	 * @param String
@@ -445,7 +438,7 @@ public class Empresa {
 	/**
 	 * Metodo que muda a situacao do veiculo se ele for alugado e remove o
 	 * veiculo dos alugueis
-	 * 
+	 *
 	 * @param String
 	 *            placa
 	 * @return boolean
@@ -463,7 +456,7 @@ public class Empresa {
 
 	/**
 	 * Metodo que registra um aluguel atrasado
-	 * 
+	 *
 	 * @param String
 	 *            placa
 	 * @param String
@@ -491,42 +484,42 @@ public class Empresa {
 		//A reserva em itens disponiveis
 		//************ FAZER!
 	}
-	
+
 	public void exibirVeiculosDisponiveis(){
 		//************ FAZER!
 	}
-	
+
 	public void exibirAlugueisAtrasados(){
 		//************ FAZER!
 	}
-	
+
 	public void exibirAlugueisVigentes(){
 		alugueis.relatorio();
 	}
-	
+
 	public void exibirRequisicoesDeAluguel(){
 		//************* Fazer!
 	}
-	
+
 	public void registrarLiberacaoDoItem(){
 		//************* Fazer!
 	}
-	
+
 	public void notificarClientesSobreLiberacaoDeVeiculos(){
 		//************* FAZER!
 	}
-	
+
 	public void notificarClientesSobreAtrasoDeAluguel(){
 		//************* FAZER!
 	}
-	
+
 	public void NotificarClienteSobreDescarteDeReserva(){
 		//************ FAZER!
 	}
-	
+
 	/**
 	 * Metodo que limpa o banco de dados
-	 * 
+	 *
 	 * */
 	public void cleanDB() {
 		usuarios.clear();

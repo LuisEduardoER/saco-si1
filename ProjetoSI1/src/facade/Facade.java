@@ -21,7 +21,7 @@ public class Facade {
 
 	private static Facade instance;
 
-	private Empresa empresa;// = new Empresa();
+	private Empresa empresa;
 
 	protected Facade() {
 		empresa = new Empresa();

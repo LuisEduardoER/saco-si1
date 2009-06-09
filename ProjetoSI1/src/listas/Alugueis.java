@@ -6,15 +6,33 @@ import java.util.ArrayList;
 
 import empresa.Aluguel;
 
+/**
+ * Classe que implementa um ArrayList de Aluguel e faz um relatorio
+ *
+ * @author Andressa Bezerra 20721005
+ * @author Lenin da Nobrega 20711433
+ * @author Niedja Roberta 20621165
+ * @author Renata Braga 20721334
+ * @author Tatyanne Lapa 20621176
+ */
 public class Alugueis extends ArrayList<Aluguel> implements RelatorioIF {
 
 	ArrayList<Aluguel> alugueis;
 	ArrayList<Aluguel> InstanciaUnica = null;
 
+	/**
+	 * construtor da classe Alugueis
+	 *
+	 */
 	public Alugueis() {
 		this.alugueis = new ArrayList<Aluguel>();
 	}
 
+	/**
+	 * Singleton da instância do ArrayList de Aluguel
+	 *
+	 * @return FachadaPersistencia
+	 */
 	public ArrayList<Aluguel> getInstance() {
 		if (InstanciaUnica == null) {
 			InstanciaUnica = this.alugueis;
@@ -24,6 +42,11 @@ public class Alugueis extends ArrayList<Aluguel> implements RelatorioIF {
 		return InstanciaUnica;
 	}
 
+	/**
+	 * Metodo que imprime o relatorio dos aluguéis
+	 *
+	 * @return String saida
+	 */
 	public String relatorio() {
 		String saida = null;
 		System.out.println("*******************  ALUGUEIS ***************** ");
